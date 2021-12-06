@@ -1,0 +1,17 @@
+<h1>Courses detail</h1>
+<div class='mt-4'>
+    <div class='row'>
+        <div class='col-md-9'>
+            <h2>{{course.name}}</h2>
+            <iframe
+                title='vimeo-player'
+                src='https://player.vimeo.com/video/{{course.videoId}}'
+                width='640'
+                height='360'
+                frameborder='0'
+                allowfullscreen
+            ></iframe>
+            <p>{{course.description}}</p>
+        </div>
+    </div>
+</div>
