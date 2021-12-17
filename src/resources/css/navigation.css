@@ -116,6 +116,9 @@
     .carousel {
         width: 310px;
     }
+    .col-xs-12 {
+      width: 100%;
+    }
 }
   
   /* For medium devices */

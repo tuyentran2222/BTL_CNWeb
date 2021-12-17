@@ -52,7 +52,7 @@ const openFAQ = (event) => {
             if (pos == 100) {
                 clearInterval(id);
             } else {
-                pos++;
+                pos += 2;
                 detailNode.style.width = pos + "%"; 
             }
         }

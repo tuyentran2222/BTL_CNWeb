@@ -46,8 +46,8 @@ const contentHeader =
                 '</a>' +
             '</li>' +
             '<li class="nav__item" style="display: flex; align-items: center;">' +
-                '<i class="bx bxs-toggle-left" id="light" status="light" hidden="false" style = "font-size:2rem; transition: width 2s;" onclick="toggleDarkModeStatus(event)" ></i>' +
-                '<i class="bx bxs-toggle-right" id="dark" status="dark" hidden="true" style = "font-size:2rem; " onclick="toggleDarkModeStatus(event)" ></i>' +
+                '<i class="bx bxs-toggle-left nav__icon" id="light" status="light" hidden="false" style = "font-size:2.25rem; transition: width 2s;" onclick="toggleDarkModeStatus(event)" ></i>' +
+                '<i class="bx bxs-toggle-right nav__icon" id="dark" status="dark" hidden="true" style = "font-size:2.25rem; " onclick="toggleDarkModeStatus(event)" ></i>' +
                 '<span class="nav__name">Dark mode</span>' +
             '</li>' +
         '</ul>' +

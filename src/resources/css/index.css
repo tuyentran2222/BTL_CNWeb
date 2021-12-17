@@ -1,6 +1,7 @@
 @import url("config.css");
 @import url("footer.css");
 @import url("navigation.css");
+@import url("loader.css");
 
 /*============================ SEARCH BAR =============================*/
 .search-container{
@@ -115,14 +116,15 @@
 }
 
 .course-item__button > a {
-  display: block;
+  display: flex;
   width: 50%;
   height: 40px;
   border: none;
   text-align: center;
-  padding-top: 10px;
   font-size: var(--button-font-size);
   margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .course-item__button > a:hover {
@@ -222,3 +224,33 @@
   color: #FF0000;
   font-size: 40px;
 }
+
+/*=======================SCROLL=============================*/
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.left-to-right {
+  transform: translateX(-150%);
+  transition: 1s ease-in-out;
+}
+
+.left-to-right.start {
+  transform: translateX(0);
+}
+
+.right-to-left {
+  transform: translateX(150%);
+  transition: 1s ease-in-out;
+}
+
+.right-to-left.start {
+  transform: translateX(0);
+}
+
+.image-scroll {
+  width: 100%;
+}
+

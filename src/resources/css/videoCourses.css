@@ -1,4 +1,5 @@
 @import url(lesson_card.css);
+@import url("loader.css");
 .video-lesson {
     display: grid;
     grid-template-columns: 50% 50%;

@@ -2,7 +2,7 @@
 @import url(footer.css);
 @import url(navigation.css);
 @import url(lesson_card.css);
-
+@import url(loader.css);
 .course-name {
   margin: 130px 0px 20px 0px;
 }
