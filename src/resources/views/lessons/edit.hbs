@@ -1,0 +1,45 @@
+<div class='mt-4'>
+    <h2>Edit lesson</h2>
+    <a
+        href='/me/stored/lessons/{{lesson.course_id}}'
+        class='btn btn-primary active'
+        role='button'
+        aria-pressed='true'
+    >Back</a>
+    <form method='post' action='/lessons/{{lesson._id}}?_method=PUT' enctype='multipart/form-data'>
+        <div class='form-group'>
+            <label for='name'>Name</label>
+            <input
+                type='text'
+                class='form-control'
+                id='name'
+                placeholder='Enter name'
+                name='name'
+                value='{{lesson.name}}'
+            />
+            <label for='transcription'>Transcription</label>
+            <input
+                type='text'
+                class='form-control'
+                id='transcription'
+                placeholder='Enter transcription'
+                name='transcription'
+                value='{{lesson.transcription}}'
+            />
+            <label for='videoid'>Video Id</label>
+            <input
+                type='text'
+                class='form-control'
+                id='videoid'
+                placeholder='Enter videoid'
+                name='videoId'
+                value='{{lesson.videoId}}'
+            />
+
+            <label for='image'>Image</label>
+            <input type='file' class='form-control' id='image' name='image' />
+        </div>
+
+        <button type='submit' class='btn btn-primary'>Sửa khóa học</button>
+    </form>
+</div>

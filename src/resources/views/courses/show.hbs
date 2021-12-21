@@ -1,17 +1,98 @@
-<h1>Courses detail</h1>
-<div class='mt-4'>
+{{!-- <div class='mt-4'>
     <div class='row'>
-        <div class='col-md-9'>
-            <h2>{{course.name}}</h2>
-            <iframe
-                title='vimeo-player'
-                src='https://player.vimeo.com/video/{{course.videoId}}'
-                width='640'
-                height='360'
-                frameborder='0'
-                allowfullscreen
-            ></iframe>
-            <p>{{course.description}}</p>
-        </div>
+        {{#each lessons}}
+            <div class='col-md-4'>
+                <div class='card card-lesson-item' >
+                  <img class="card-img-top" src="/{{this.imageUrl}}" alt="Card image cap">
+                    <div class='card-body'>
+                        <a href='/lessons/{{this.slug}}'><h5
+                                class='card-title'
+                            >{{this.name}}</h5>
+                              <p class="card-text">{{this.description}}</p>
+                    </div>       
+                </div>
+            </div>
+        {{/each}}
+
     </div>
-</div>
+</div>  --}}
+
+
+<head>
+    <link rel = "icon" href ="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" type = "image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/videoCourses.css">
+    <script src="/js/icons.js"></script>
+    
+</head>
+<body>
+    <!---------------------TOP NAVIGATION-------------------->
+    {{!-- <header class="header" id="header">
+        
+    </header> --}}
+
+    <!--------------------SEARCH BAR------------------------>
+    <section class="search-course" id="search-bar">
+        
+    </section>
+
+    <!--------------------- LESSON LISTS------------------->
+    <section class="new-lesson" id="new-video-lesson">
+        <div class="container">
+            <h2>Course: Test Course</h2>
+        </div>
+        <div class="container">
+            <h2>Lessons</h2>
+        </div>
+        <div class="container video-lesson">
+            <div class="video-lesson__image">
+                <img src="/assets//images/group24_image1.png">
+            </div>
+            <div class="lessons">
+                  <!-- begin -->
+                   {{#each lessons}}
+                <div class="lesson-card">
+                 
+                    <div class="lesson-card-left">
+                          <a href="/lessons/{{this.slug}}" class="lesson-card__index">
+                              <b>{{this.name}}</b>
+                          </a>
+                          <div class="lesson-card__time">
+                            <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
+                          </div>
+                          <div class="lesson-card__content">
+                            How to make radical climate action the new normal
+                          </div>
+                    </div>
+
+                   
+                    <a href="/lessons/{{this.slug}}" class="lesson-card-right">
+                        <i class="far fa-play-circle"></i>
+                        <div class="lesson-length">13:45</div>
+                        <img src="/{{this.imageUrl}}" alt="Anh dai dien">
+                    </a>
+                    
+                </div>
+                  <!-- end -->
+               
+             {{/each}}
+            </div>
+
+        </div>
+    </section>
+
+    <!----------------------FOOTER----------------------->
+    <section class="footer" id="footer">
+
+    </section>
+
+    <!--------------------ADD JS------------------------->
+    <script src="/js/loader.js"></script>
+    <script src="/js/navigation.js"></script>
+    <script src="/js/searchbar.js"></script>
+    <script src="/js/footer.js"></script>
+    <script src="/js/darkmode.js"></script>
+</body>

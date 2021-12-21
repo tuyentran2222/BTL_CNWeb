@@ -1,0 +1,24 @@
+<div class='mt-4'>
+    <h2>Add question</h2>
+    <a
+        href='/me/stored/questions/{{lesson._id}}'
+        class='btn btn-primary active'
+        role='button'
+        aria-pressed='true'
+    >Back</a>
+    <form method='post' action='/questions/store/{{lesson._id}}'>
+        <div class='form-group'>
+
+            <label for='content'>Question</label>
+            <textarea
+                class='form-control'
+                id='content'
+                placeholder='Enter content'
+                name='content'
+            ></textarea>
+
+        </div>
+
+        <button type='submit' class='btn btn-primary'>Add question</button>
+    </form>
+</div>

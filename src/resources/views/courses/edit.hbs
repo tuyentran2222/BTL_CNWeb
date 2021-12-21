@@ -1,6 +1,6 @@
 <div class='mt-4'>
-    <h2>Chỉnh sửa khóa học khóa học</h2>
-    <form method='post' action='/courses/{{course._id}}?_method=PUT'>
+    <h2>Edit course</h2>
+    <form method='post' action='/courses/{{course._id}}?_method=PUT' enctype='multipart/form-data'>
         <div class='form-group'>
             <label for='name'>Name</label>
             <input
@@ -11,7 +11,7 @@
                 name='name'
                 value='{{course.name}}'
             />
-            <label for='description'>Description</label>
+            <label for='description'>description</label>
             <input
                 type='text'
                 class='form-control'
@@ -20,25 +20,9 @@
                 name='description'
                 value='{{course.description}}'
             />
-            <label for='videoid'>Video Id</label>
-            <input
-                type='text'
-                class='form-control'
-                id='videoid'
-                placeholder='Enter videoid'
-                name='videoId'
-                value='{{course.videoId}}'
-            />
-            <label for='level'>Level</label>
-            <input
-                type='text'
-                class='form-control'
-                id='level'
-                placeholder='Enter level'
-                name='level'
-                value='{{course.level}}'
-            />
 
+            <label for='image'>Image</label>
+            <input type='file' class='form-control' id='image' name='image' />
         </div>
 
         <button type='submit' class='btn btn-primary'>Sửa khóa học</button>

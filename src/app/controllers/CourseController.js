@@ -1,26 +1,30 @@
 const Course = require('../models/Course');
-const { mongooseToObject } = require('../../util/mongoose');
+const Lesson = require('../models/Lesson');
+const { mongooseToObject, multipleMongooseToObject } = require('../../util/mongoose');
 
 class CourseController {
-    //[GET] /courses/:slug
+    //[GET] /courses/:id
     show(req, res, next) {
-        console.log(req.params.slug);
-        Course.findOne({ slug: req.params.slug })
-            .then((course) => {
+        Lesson.find({ course_id: req.params.id })
+            .then((lessons) => {
                 res.render('courses/show', {
-                    course: mongooseToObject(course),
+                    lessons: multipleMongooseToObject(lessons),
                 });
             })
             .catch(next);
     }
-
+    //[GET] /courses/create
     create(req, res, next) {
         res.render('courses/create');
     }
-
+    //[POST] /courses/create
     store(req, res, next) {
+        const image = req.file;
+        if (!image) {
+            res.status(422).send('Attack file is not an image');
+        }
         const formdata = req.body;
-        formdata.image = `https://i.ytimg.com/vi/${req.body.videoId}/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBL-Lq-AcZPqDC_Z3KJpCvailFSrQ`;
+        formdata.imageUrl = image.path;
         const course = new Course(formdata);
         course
             .save()
@@ -39,10 +43,17 @@ class CourseController {
     }
 
     update(req, res, next) {
-        Course.updateOne({ _id: req.params.id }, req.body)
+        const image = req.file;
+        if (!image) {
+            res.status(422).send('Attack file is not an image');
+        }
+        const formdata = req.body;
+        formdata.imageUrl = image.path;
+        Course.updateOne({ _id: req.params.id }, formdata)
             .then(() => res.redirect('/me/stored/courses'))
             .catch(next);
     }
+
     destroy(req, res, next) {
         Course.deleteOne({ _id: req.params.id })
             .then(() => res.redirect('back'))

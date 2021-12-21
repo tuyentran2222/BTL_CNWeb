@@ -1,0 +1,281 @@
+{{!-- <h1>Lessons detail</h1>
+<div class='mt-4'>
+    <div class='row'>
+        <div class='col-md-9'>
+            <h2>{{lesson.name}}</h2>
+
+            <iframe
+                title='vimeo-player'
+                src='https://player.vimeo.com/video/{{lesson.contentId}}'
+                width='640'
+                height='360'
+                frameborder='0'
+                allowfullscreen
+            ></iframe>
+
+            <p>{{lesson.transcription}}</p>
+        </div>
+    </div>
+</div> --}}
+
+<head>
+    <link rel='preconnect' href='https://fonts.gstatic.com' />
+    <link
+        href='https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap'
+        rel='stylesheet'
+    />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet' />
+    <link rel='stylesheet' href='/css/lesson.css' />
+    <link rel='stylesheet' href='/css/index.css' />
+    <script src='/js/icons.js'></script>
+</head>
+
+
+<body onload="loader()">
+    <!-------------------SPINNER--------------------------->
+    <div id="parentLoader" style="height:100vh;">
+        <div id="loader"></div>
+    </div>
+
+    <!--------------------CONTENT-------------------------->
+    <div id="content" class="animate-top" >
+        <!----------------TOP NAVIGATION-------------------->
+        {{!-- <header class="header" id="header">
+            
+        </header> --}}
+
+        <!----------------LESSON-CONTENT--------------------->
+        <section>
+            <div class="lesson-detail container">
+                <div class="course-name">
+                    <h2><i style="color: crimson;font-size: 20px; font-weight: 200;" class='bx bxl-youtube'></i> Course: </h2>
+                </div>
+                <div class="lesson" style="margin: 0px 0px 20px 0px;">
+                    <div class="lesson__title">
+                        <h2><i style="color: crimson;font-size: 20px; font-weight: 200;" class='bx bxs-book-alt'></i> Lesson 10: {{lesson.name}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="lesson-container container">
+                <div class="left-container">
+                       <iframe
+                title='vimeo-player'
+                src='https://player.vimeo.com/video/{{lesson.contentId}}'
+               width="100%" height="600px"
+                frameborder='0'
+                allowfullscreen
+            ></iframe>
+                    {{!-- <iframe width="100%" height="600px" src="http://www.youtube.com/embed/IStS6E0uGhE?autoplay=1" frameborder="0" allowfullscreen></iframe> --}}
+                    <div class="tab">
+                        <button value="transcript" class="tab-links" onclick="openTab(event, 'transcript')" id="defaultOpen"><i class="far fa-bookmark"></i> Transcript</button>
+                        <button value="quiz" class="tab-links" onclick="openTab(event, 'quiz')"><i class="far fa-question-circle"></i> Quiz</button>
+                    </div>
+                    <div id="quiz" class="tab-content">
+                        <p>Answer the following questions about the interview.</p>
+                        <!-- begin -->
+                           
+                           {{#each questions}}
+                                <div class="qiz-question">
+                                    <div class="question__content">{{this.content}} </div>
+                                    <!-- begin-->
+                                        {{#each this.answer}}
+                                            <input type="checkbox" name="question1" class="answer1" id="{{this._id}}" value="A">
+                                            <label for="answer1_A">{{this.content}}</label>
+                                             <input type="hidden" id="custId" name="custId" value="{{this.isTrue}}">
+                                            </br>
+                                         {{/each}}
+                                    <!--end-->
+                                </div>
+                          {{/each}}
+                          <!-- begin -->
+                      
+                        
+                        <button id="submit-answer"><i class="far fa-paper-plane"></i> Submit Answer</button>
+                        <button id="reset-answer"><i class="fas fa-redo-alt"></i> Reset Answer</button>
+                    </div>  
+                    <div id="transcript" class="tab-content">
+                        
+                        <div id="transcript__content">
+                          {{lesson.transcription}}
+                        </div>
+                        <button id="hide-transcript">Hide Transcript</button>
+                    </div>
+
+                    <hr/>
+                    
+                    <div class="continue-lesson">
+                        <h3>Watch next <i class='bx bxs-right-arrow-square bx-fade-right' style="color: var(--danger-color);font-size: 20px;" ></i></h3>
+                        <div class="lessons">
+                            <div class="lesson-card">
+                                <div class="lesson-card-left">
+                                    <a href="lesson.html" class="lesson-card__index">
+                                        <b>Lesson 2</b>
+                                    </a>
+                                    <div class="lesson-card__time">
+                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
+                                    </div>
+                                    <div class="lesson-card__content">
+                                        How to make radical climate action the new normal
+                                    </div>
+                                </div>
+                                <a href="lesson.html" class="lesson-card-right">
+                                    <i class="far fa-play-circle"></i>
+                                    <div class="lesson-length">13:45</div>
+                                    <img src="//assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
+                                </a>
+                                
+                            </div>
+                            <div class="lesson-card">
+                                <div class="lesson-card-left">
+                                    <a href="lesson.html" class="lesson-card__index">
+                                        <b>Lesson 2</b>
+                                    </a>
+                                    <div class="lesson-card__time">
+                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
+                                    </div>
+                                    <div class="lesson-card__content">
+                                        How to make radical climate action the new normal
+                                    </div>
+                                </div>
+                                <a href="lesson.html" class="lesson-card-right">
+                                    <i class="far fa-play-circle"></i>
+                                    <div class="lesson-length">13:45</div>
+                                    <img src="//assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
+                                </a>
+                                
+                            </div>
+                            <div class="lesson-card">
+                                <div class="lesson-card-left">
+                                    <a href="#" class="lesson-card__index">
+                                        <b>Lesson 2</b>
+                                    </a>
+                                    <div class="lesson-card__time">
+                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
+                                    </div>
+                                    <div class="lesson-card__content">
+                                        How to make radical climate action the new normal
+                                    </div>
+                                </div>
+                                <a href="#" class="lesson-card-right">
+                                    <i class="far fa-play-circle"></i>
+                                    <div class="lesson-length">13:45</div>
+                                    <img src="//assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
+                                </a>
+                                
+                            </div>
+                            <div class="lesson-card">
+                                <div class="lesson-card-left">
+                                    <a href="#" class="lesson-card__index">
+                                        <b>Lesson 2</b>
+                                    </a>
+                                    <div class="lesson-card__time">
+                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
+                                    </div>
+                                    <div class="lesson-card__content">
+                                        How to make radical climate action the new normal
+                                    </div>
+                                </div>
+                                <a href="#" class="lesson-card-right">
+                                    <i class="far fa-play-circle"></i>
+                                    <div class="lesson-length">13:45</div>
+                                    <img src="//assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
+                                </a>
+                                
+                            </div>
+                            <div class="lesson-card">
+                                <div class="lesson-card-left">
+                                    <a href="#" class="lesson-card__index">
+                                        <b>Lesson 2</b>
+                                    </a>
+                                    <div class="lesson-card__time">
+                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
+                                    </div>
+                                    <div class="lesson-card__content">
+                                        How to make radical climate action the new normal
+                                    </div>
+                                </div>
+                                <a href="#" class="lesson-card-right">
+                                    <i class="far fa-play-circle"></i>
+                                    <div class="lesson-length">13:45</div>
+                                    <img src="//assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
+                                </a>
+                                
+                            </div>
+                            <div class="lesson-card">
+                                <div class="lesson-card-left">
+                                    <a href="#" class="lesson-card__index">
+                                        <b>Lesson 2</b>
+                                    </a>
+                                    <div class="lesson-card__time">
+                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
+                                    </div>
+                                    <div class="lesson-card__content">
+                                        How to make radical climate action the new normal
+                                    </div>
+                                </div>
+                                <a href="#" class="lesson-card-right">
+                                    <i class="far fa-play-circle"></i>
+                                    <div class="lesson-length">13:45</div>
+                                    <img src="//assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>      
+                
+                    
+                <div class="right-container">
+                    <h2>Related Course</h2>
+                    <div class="course-relate-list">
+                        <div class="course-item">
+                            <img src="https://learnenglish.britishcouncil.org/sites/podcasts/files/styles/430x261_4/public/2021-09/GettyImages-1072206958_0.jpg?itok=qJTgFre7" alt="Course Item">
+                            <div class="course-item-information">
+                                <h3 class="course-item__name">Course 1</h3>
+                                <div class="course-item__description">Online one-to-one English tutoring – enjoy your first session for </div>
+                                <div class="course-item__button">
+                                    <a class="btn-primary course-btn" href="lessonList.html">Learn more <i class='bx bx-right-arrow-alt'></i></a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="course-item">
+                            <img src="https://learnenglish.britishcouncil.org/sites/podcasts/files/styles/430x261_4/public/2021-09/GettyImages-1072206958_0.jpg?itok=qJTgFre7" alt="Course Item">
+                            <div class="course-item-information">
+                                <h3 class="course-item__name">Course 1</h3>
+                                <div class="course-item__description">Online one-to-one English tutoring – enjoy your first session for </div>
+                                <div class="course-item__button">
+                                    <a class="btn-primary course-btn" href="lessonList.html">Learn more <i class='bx bx-right-arrow-alt'></i></a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="course-item">
+                            <img src="https://learnenglish.britishcouncil.org/sites/podcasts/files/styles/430x261_4/public/2021-09/GettyImages-1072206958_0.jpg?itok=qJTgFre7" alt="Course Item">
+                            <div class="course-item-information">
+                                <h3 class="course-item__name">Course 1</h3>
+                                <div class="course-item__description">Online one-to-one English tutoring – enjoy your first session for </div>
+                                <div class="course-item__button">
+                                    <a class="btn-primary course-btn" href="lessonList.html">Learn more <i class='bx bx-right-arrow-alt'></i></a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-------------------------FOOTER-------------------------->
+        <section class="footer" id="footer">
+
+        </section>
+    </div>
+    <!----------------------ADD JS FILE------------------------>
+    <script src="/js/loader.js"></script>
+    <script src="/js/navigation.js"></script>
+    <script src="/js/footer.js"></script>
+    <script src="/js/lesson.js"></script>
+    <script src="/js/darkmode.js"></script>
+</body>

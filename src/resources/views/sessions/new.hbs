@@ -1,14 +1,21 @@
-<div class='mt-4'>
-    <h1>Đăng nhập</h1>
-    <form method='post' action='/login'>
+{{!-- <div class='mt-4'>
+    <h1>Log in</h1>
+    {{#if errorMessage}}
+        <div class='alert alert-danger' role='alert'>
+            {{errorMessage}}
+        </div>
+    {{/if}}
+    <form method='post' action='/login' novalidate>
+
         <div class='form-group'>
-            <label for='username'>Username</label>
+            <label for='email'>Email</label>
             <input
-                type='text'
+                type='email'
                 class='form-control'
-                id='username'
-                placeholder='Enter username'
-                name='username'
+                id='email'
+                placeholder='Enter email'
+                name='email'
+                value='{{oldInput.email}}'
             />
             <label for='password'>Password</label>
             <input
@@ -17,11 +24,122 @@
                 id='password'
                 placeholder='Enter password'
                 name='password'
+                value='{{oldInput.password}}'
             />
 
         </div>
 
-        <button type='submit' class='btn btn-primary'>Đăng
-            nhập</button>
+        <button type='submit' class='btn btn-primary'>Đăng nhập</button>
     </form>
-</div>
+</div> --}}
+
+<head>
+    <link rel='preconnect' href='https://fonts.gstatic.com' />
+    <link
+        href='https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap'
+        rel='stylesheet'
+    />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet' />
+    <link rel='stylesheet' href='/css/register.css' />
+    <link rel='stylesheet' href='/css/index.css' />
+    <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
+    <script src='/js/icons.js'></script>
+</head>
+<body>
+    <div class='s-container'>
+        <div class='login-container'>
+            <div class='login'>
+                {{#if errorMessage}}
+                    <div class='alert alert-danger' role='alert'>
+                        {{errorMessage}}
+                    </div>
+                {{/if}}
+                <form method='post' class='form-login' id='signin-form'>
+                    <div class='introduction__image' style='text-align: center;'>
+                        <img width='150px' src='../../assets/images/learner.png' alt='Learner' />
+                    </div>
+                    <a href='#' class='form-logo'>
+                        <h2
+                            style='text-align: center; font-size: 2rem;text-shadow: 3px -2px 3px #CEC43C;'
+                        >E Learning</h2>
+                    </a>
+                    <div class='form-group'>
+                        <label for='signin-email'>Email</label>
+                        <input
+                            type='email'
+                            id='signin-email'
+                            class='form-group__input'
+                            placeholder='Email'
+                            name='email'
+                            value='{{oldInput.email}}'
+                        />
+                        <span class='form-group__icon error'>
+                            <i class='fas fa-exclamation-circle'></i>
+                        </span>
+
+                        <span class='form-group__icon--header'>
+                            <i class='fas fa-envelope'></i>
+                        </span>
+                        <span class='form-group__icon success'>
+                            <i class='far fa-check-circle'></i>
+                        </span>
+                        <span class='form-input-err-msg' data-err-for='signin-email'></span>
+                    </div>
+
+                    <div class='form-group'>
+                        <label for='signin-password'>Password</label>
+                        <input
+                            type='password'
+                            id='signin-password'
+                            class='form-group__input'
+                            placeholder='Password'
+                            name='password'
+                            value='{{oldInput.password}}'
+                        />
+                        <span class='form-group__icon--header'>
+                            <i class='fas fa-lock'></i>
+                        </span>
+                        <span class='form-group__icon error'>
+                            <i class='fas fa-exclamation-circle'></i>
+                        </span>
+                        <span class='form-group__icon success'>
+                            <i class='far fa-check-circle'></i>
+                        </span>
+
+                        <span class='form-input-err-msg' data-err-for='signin-password'></span>
+                    </div>
+                    <div>
+                        <input type='checkbox' name='signup-password' />
+                        <span>Remember account?</span>
+                    </div>
+
+                    <button type='submit' class='button btn-primary signup_btn' id='signup-btn'>Log
+                        in</button>
+                    <div style='text-align: center;'>
+                        Don't have an account?
+                        <span class='form-txt'>
+                            <a href='/users/signup'>Sign up!</a>
+                        </span>
+
+                    </div>
+                    <div style='text-align: center;'>
+                        <span class='form-txt'>
+                            <a href='#'>Forgot password?</a>
+                        </span>
+                    </div>
+                    <div style='text-align: center;'>
+                        <span>
+                            <a href='/'><i
+                                    class='bx bx-home-alt'
+                                    style='font-size: 25px; color: crimson;'
+                                ></i></a>
+                        </span>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <script src='/js/loader.js'></script>
+    <script src='/js/login.js'></script>
+</body>

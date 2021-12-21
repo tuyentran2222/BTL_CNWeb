@@ -1,0 +1,24 @@
+<div class='mt-4'>
+    <h2>Edit question</h2>
+    <a
+        href='/me/stored/questions/{{question.lesson_id}}'
+        class='btn btn-primary active'
+        role='button'
+        aria-pressed='true'
+    >Back</a>
+    <form method='post' action='/questions/{{question._id}}?_method=PUT'>
+        <div class='form-group'>
+
+            <label for='content'>Question</label>
+            <textarea
+                class='form-control'
+                id='content'
+                placeholder='Enter content'
+                name='content'
+            >{{question.content}}</textarea>
+
+        </div>
+
+        <button type='submit' class='btn btn-primary'>Edit question</button>
+    </form>
+</div>
