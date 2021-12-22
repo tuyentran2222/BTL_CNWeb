@@ -20,6 +20,12 @@
 .nav__item:hover, .nav__item:active {
   color: #622335;
 }
+
+.nav__item {
+  display: flex;
+  align-items: center;
+}
+  
   
 .nav__img {
   width: 32px;
