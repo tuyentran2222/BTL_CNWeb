@@ -1,0 +1,53 @@
+<div class='container'>
+    <div class='mt-4'>
+        <h2>Add lesson</h2>
+        <a
+            href='/me/stored/lessons/{{course._id}}'
+            class='btn btn-primary active'
+            role='button'
+            aria-pressed='true'
+        >Back</a>
+        <form method='post' action='/lessons/store/{{course._id}}' enctype='multipart/form-data'>
+            <div class='form-group'>
+                <label for='name'>Name</label>
+                <input
+                    type='text'
+                    class='form-control'
+                    id='name'
+                    placeholder='Enter name'
+                    name='name'
+                />
+                <label for='Transcription'>Transcription</label>
+                <textarea
+                    class='form-control'
+                    id='Transcription'
+                    placeholder='Enter Transcription'
+                    name='transcription'
+                ></textarea>
+                {{#if (isVideo course.type)}}
+                    <label for='videoid'>Video Id</label>
+                    <input
+                        type='text'
+                        class='form-control'
+                        id='videoid'
+                        placeholder='Enter videoid'
+                        name='contentId'
+                    />
+                {{else}}
+                    <label for='audioid'>Audio Id</label>
+                    <input
+                        type='text'
+                        class='form-control'
+                        id='audioid'
+                        placeholder='Enter audioid'
+                        name='contentId'
+                    />
+                {{/if}}
+                <label for='image'>Image</label>
+                <input type='file' class='form-control' id='image' name='image' />
+            </div>
+
+            <button type='submit' class='btn btn-primary'>Add lesson</button>
+        </form>
+    </div>
+</div>

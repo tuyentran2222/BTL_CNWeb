@@ -9,10 +9,37 @@ const db = require('./config/db');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const User = require('./app/models/User');
+const multer = require('multer');
+const flash = require('connect-flash');
 // Connect to db
 db.connect();
 
+const fileStorage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'src/images');
+    },
+    filename: (req, file, cb) => {
+        const uniquePreffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+        cb(null, uniquePreffix + '-' + file.originalname);
+    },
+});
+
+const fileFilter = (req, file, cb) => {
+    if (
+        file.mimetype === 'image/png' ||
+        file.mimetype === 'image/jpeg' ||
+        file.mimetype === 'image/jpg'
+    ) {
+        cb(null, true);
+    } else {
+        cb(null, false);
+    }
+};
+app.use(flash());
+app.use('/src/images', express.static(path.join(__dirname, 'images')));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).single('image'));
 //Http logger
 app.use(morgan('combined'));
 app.use(
@@ -34,12 +61,14 @@ app.use(async (req, res, next) => {
     res.locals.login = {
         admin: false,
         status: false,
+        name: '',
     };
 
     if (req.session.user_id) {
         res.locals.login.status = true;
         const user = await User.findOne({ _id: req.session.user_id }).lean();
         res.locals.login.admin = user.admin;
+        res.locals.login.name = user.name;
     }
     next();
 });
@@ -48,6 +77,10 @@ var hbs = handlebars.create({
     extname: '.hbs',
     helpers: {
         sum: (a, b) => a + b,
+        isVideo: (a) => a === 'video',
+        warn: (a, b) => {
+            return a.find((e) => e.param === b) ? 'invalid' : '';
+        },
     },
 });
 app.engine('hbs', hbs.engine);

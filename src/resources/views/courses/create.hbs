@@ -1,6 +1,6 @@
 <div class='mt-4'>
-    <h2>Đăng khóa học</h2>
-    <form method='post' action='store'>
+    <h2>Add course</h2>
+    <form method='post' action='store' enctype='multipart/form-data'>
         <div class='form-group'>
             <label for='name'>Name</label>
             <input
@@ -13,29 +13,35 @@
             <label for='description'>Description</label>
             <textarea
                 class='form-control'
-                id='description'
+                iD='description'
                 placeholder='Enter description'
                 name='description'
             ></textarea>
-            <label for='videoid'>Video Id</label>
-            <input
-                type='text'
-                class='form-control'
-                id='videoid'
-                placeholder='Enter videoid'
-                name='videoId'
-            />
-            <label for='level'>Level</label>
-            <input
-                type='text'
-                class='form-control'
-                id='level'
-                placeholder='Enter level'
-                name='level'
-            />
 
+            <label for='image'>Image</label>
+            <input type='file' class='form-control' id='image' name='image' />
+            <label>Type</label>
+            <div class='form-check'>
+                <input class='form-check-input' type='radio' name='type' id='type1' value='audio' />
+                <label class='form-check-label' for='type1'>
+                    Audio
+                </label>
+            </div>
+            <div class='form-check'>
+                <input
+                    class='form-check-input'
+                    type='radio'
+                    name='type'
+                    id='type2'
+                    value='video'
+                    checked
+                />
+                <label class='form-check-label' for='type2'>
+                    Video
+                </label>
+            </div>
         </div>
 
-        <button type='submit' class='btn btn-primary'>Thêm khóa học</button>
+        <button type='submit' class='btn btn-primary'>Add course</button>
     </form>
 </div>

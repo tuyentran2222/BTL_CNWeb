@@ -1,27 +1,197 @@
-<div class='mt-4'>
-    <h1>Tạo tài khoản</h1>
-    <form method='post' action='create'>
+{{!-- <div class='mt-4'>
+    <h1>Sign up</h1>
+    {{#if errorMessage}}
+        <div class='alert alert-danger' role='alert'>
+            {{errorMessage}}
+        </div>
+    {{/if}}
+    <form method='post' action='create' novalidate>
         <div class='form-group'>
-            <label for='username'>Username</label>
+            <label for='name'>Name</label>
             <input
                 type='text'
                 class='form-control'
-                id='username'
-                placeholder='Enter username'
-                name='username'
+                id='name'
+                placeholder='Enter name'
+                name='name'
+                value='{{oldInput.name}}'
+            />
+
+            <label for='email'>Email</label>
+            <input
+                type='email'
+                class='form-control {{warn validationErrors 'email'}}'
+                id='email'
+                placeholder='Enter email'
+                name='email'
+                value='{{oldInput.email}}'
             />
             <label for='password'>Password</label>
             <input
                 type='password'
-                class='form-control'
+                class='form-control {{warn validationErrors 'password'}}'
                 id='password'
                 placeholder='Enter password'
                 name='password'
+                value='{{oldInput.password}}'
+            />
+
+            <label for='confirmPassword'>Confirm Password</label>
+            <input
+                type='password'
+                class='form-control {{warn validationErrors 'confirmPassword'}}'
+                id='confirmPassword'
+                placeholder='Enter confirmPassword'
+                name='confirmPassword'
+                value='{{oldInput.confirmPassword}}'
             />
 
         </div>
 
-        <button type='submit' class='btn btn-primary'>Đăng
-            kí</button>
+        <button type='submit' class='btn btn-primary'>Đăng kí</button>
     </form>
+</div> --}}
+<head>
+    <link rel='stylesheet' href='/css/index.css' />
+    <link rel='stylesheet' href='/css/register.css' />
+
+    <link rel='preconnect' href='https://fonts.gstatic.com' />
+    <link
+        href='https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap'
+        rel='stylesheet'
+    />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet' />
+    <script src='/js/icons.js'></script>
+    <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
+</head>
+
+<div class='s-container'>
+    <div class='register-container'>
+        <div class='register'>
+            {{#if errorMessage}}
+                <div class='alert alert-danger' role='alert'>
+                    {{errorMessage}}
+                </div>
+            {{/if}}
+            <form method='post' class='form-register' id='register-form' action='create' novalidate>
+                <a href='#' class='form-logo'>
+                    <h2 style='text-align: center; font-size: 2rem;'>E Learning</h2>
+                </a>
+                <div class='form-group'>
+                    <label for='signup-email'>Email</label>
+                    <input
+                        type='email'
+                        id='signup-email'
+                        class='form-group__input {{warn validationErrors 'email'}}'
+                        placeholder='Email'
+                        name='email'
+                        value='{{oldInput.email}}'
+                    />
+                    <span class='form-group__icon error'>
+                        <i class='fas fa-exclamation-circle'></i>
+                    </span>
+                    <span class='form-group__icon success'>
+                        <i class='far fa-check-circle'></i>
+                    </span>
+                    <span class='form-group__icon--header'>
+                        <i class='fas fa-envelope'></i>
+                    </span>
+                    <span class='form-input-err-msg' data-err-for='signup-email'></span>
+                </div>
+
+                <div class='form-group'>
+                    <label for='signup-password'>Password</label>
+                    <input
+                        type='password'
+                        id='signup-password'
+                        class='form-group__input {{warn validationErrors 'password'}}'
+                        placeholder='Password'
+                        name='password'
+                        value='{{oldInput.password}}'
+                    />
+                    <span class='form-group__icon--header'>
+                        <i class='fas fa-lock'></i>
+                    </span>
+                    <span class='form-group__icon error'>
+                        <i class='fas fa-exclamation-circle'></i>
+                    </span>
+                    <span class='form-group__icon success'>
+                        <i class='far fa-check-circle'></i>
+                    </span>
+                    <span class='form-input-err-msg' data-err-for='signup-password'></span>
+                </div>
+                <div class='form-group'>
+                    <label for='signup-confirmPassword'>Confirm Password</label>
+                    <input
+                        type='password'
+                        id='signup-confirmPassword'
+                        class='form-group__input {{warn validationErrors 'confirmPassword'}}'
+                        placeholder='Confirm Password'
+                        name='confirmPassword'
+                        value='{{oldInput.confirmPassword}}'
+                    />
+                    <span class='form-group__icon--header'>
+                        <i class='fas fa-lock'></i>
+                    </span>
+                    <span class='form-group__icon error'>
+                        <i class='fas fa-exclamation-circle'></i>
+                    </span>
+                    <span class='form-group__icon success'>
+                        <i class='far fa-check-circle'></i>
+                    </span>
+                    <span class='form-input-err-msg' data-err-for='signup-confirmPassword'></span>
+                </div>
+
+                <div class='form-group'>
+                    <label for='signup-fullName'>Full name</label>
+                    <input
+                        type='text'
+                        id='signup-fullName'
+                        class='form-group__input'
+                        placeholder='Full Name'
+                        name='name'
+                        value='{{oldInput.name}}'
+                    />
+                    <span class='form-group__icon--header'>
+                        <i class='fas fa-file-signature'></i>
+                    </span>
+                    <span class='form-group__icon error'>
+                        <i class='fas fa-exclamation-circle'></i>
+                    </span>
+                    <span class='form-group__icon success'>
+                        <i class='far fa-check-circle'></i>
+                    </span>
+                    <span class='form-input-err-msg' data-err-for='signup-fullName'></span>
+                </div>
+
+                <div class='form-group'>
+                    <label for='signup-birthday'>Birthday</label>
+                    <span class='form-group__icon--header'>
+                        <i class='far fa-calendar-plus'></i>
+                    </span>
+                    <input
+                        type='date'
+                        id='signup-birthday'
+                        class='form-group__input'
+                        placeholder='Birthday'
+                        name='signup-birthday'
+                        style='text-indent:15px'
+                    />
+                    <span class='form-input-err-msg' data-err-for='signup-birthday'></span>
+                </div>
+
+                <button type='submit' class='button btn-primary signup_btn' id='signup-btn'>Sign up</button>
+                <div style='text-align: center;'>
+                    You have an account?
+                    <span class='form-txt'>
+                        <a href='/login'>Log in!</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+
+    </div>
 </div>
+
+<script src='/js/loader.js'></script>
+<script src='/js/register.js'></script>

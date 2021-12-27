@@ -1,25 +1,51 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
-
+const { validationResult } = require('express-validator');
 class SessionController {
     // [GET] /Session/
     new(req, res, next) {
-        res.render('sessions/new');
+        res.render('sessions/new', {
+            oldInput: { email: '', password: '' },
+        });
     }
 
     async create(req, res, next) {
-        const { username } = req.body;
-        const user = await User.findOne({ username }).lean();
+        const errors = validationResult(req);
+        console.log(errors);
+        if (!errors.isEmpty()) {
+            return res.status(422).render('sessions/new', {
+                errorMessage: errors.array()[0].msg,
+                oldInput: {
+                    email: req.body.email,
+                    password: req.body.password,
+                },
+            });
+        }
+
+        const { email } = req.body;
+        const user = await User.findOne({ email }).lean();
 
         if (!user) {
-            return res.status(400).send('cannot find user');
+            return res.status(400).render('sessions/new', {
+                errorMessage: 'Invalid email or password',
+                oldInput: {
+                    email: req.body.email,
+                    password: req.body.password,
+                },
+            });
         }
 
         if (await bcrypt.compare(req.body.password, user.password)) {
             req.session.user_id = user._id;
             res.redirect('/');
         } else {
-            res.send('wrong password');
+            return res.status(400).render('sessions/new', {
+                errorMessage: 'Invalid email or password',
+                oldInput: {
+                    email: req.body.email,
+                    password: req.body.password,
+                },
+            });
         }
     }
 

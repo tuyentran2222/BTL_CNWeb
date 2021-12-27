@@ -1,0 +1,124 @@
+<head>
+    <link
+        rel='icon'
+        href='https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg'
+        type='image/x-icon'
+    />
+    <link rel='preconnect' href='https://fonts.gstatic.com' />
+    <link
+        href='https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap'
+        rel='stylesheet'
+    />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet' />
+    <link rel='stylesheet' href='/css/index.css' />
+    <link rel='stylesheet' href='/css/videoCourses.css' />
+    <script src='/js/icons.js'></script>
+</head>
+
+{{! begin }}
+<body onload='loader()'>
+    <!-------------------SPINNER--------------------------->
+    <div id="parentLoader" style="height:100vh;">
+        <div id="loader"></div>
+    </div>
+
+    <!--------------------CONTENT-------------------------->
+    <div id='content' class='animate-top'>
+
+        <!---------------------TOP NAVIGATION-------------------->
+        {{! <header class='header' id='header'>
+
+        </header> }}
+
+        <!--------------------SEARCH BAR------------------------>
+       
+        <section class="search-course" id="search-bar">
+             <div class="container"> 
+                <form class="search-bar" action='/search?type={{type}}'> 
+                    <input type="text" class="search-bar__input" name="searchCourse" placeholder="Search" autocomplete="off"> 
+                    <input type="hidden" value="{{type}}" name="type">
+                    <button type="submit" class="search-bar__btn btn-primary">Search</button> 
+                </form> 
+            </div>
+        </section>
+
+        <!--------------------COURSE LISTS---------------------->
+        <section class="video-course-list" >
+            <div class="container">
+                <h2>Course Video Lists</h2>
+            </div>
+            <div class="container">
+                <div class="course-list">
+                    <!--begin-->
+                       {{#each courses}}
+                    <div class="course-item">
+                         <img src="/{{this.imageUrl}}" alt="Course Item">
+                        <div class="course-item-information">
+                            <h2 class="course-item__name">{{this.name}}</h2>
+                            <div class="course-item__description">{{this.description}}</div>
+                            <div class="course-item__button">
+                                <a class="btn-primary course-btn"  href='/courses/{{this._id}}'>Learn more <i class='bx bx-right-arrow-alt'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                       {{/each}}
+                       <!--end-->
+
+                </div>
+            </div>
+            <div class="container show-more-container">
+                <button class="show-more btn-primary">
+                    More
+                </button>
+            </div>
+        </section>
+
+        <!----------------------NEW LESSON------------------->
+        <section class="new-lesson" id="new-video-lesson">
+            <div class="container">
+                <h2>New video lesson</h2>
+            </div>
+            <div class="container video-lesson">
+                <div class="video-lesson__image">
+                    <img src="../../assets//images/group24_image1.png">
+                </div>
+                <div class="lessons">
+                    <!-- begin -->
+                    <div class="lesson-card">
+                        <div class="lesson-card-left">
+                            <a href="#" class="lesson-card__index">
+                                <b>Lesson 2</b>
+                            </a>
+                            <div class="lesson-card__time">
+                                <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
+                            </div>
+                            <div class="lesson-card__content">
+                                How to make radical climate action the new normal
+                            </div>
+                        </div>
+                        <a href="#" class="lesson-card-right">
+                            <i class="far fa-play-circle"></i>
+                            <div class="lesson-length">13:45</div>
+                            <img src="../../assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
+                        </a>
+                        
+                    </div>
+                      <!-- end -->
+                  
+                </div>
+            </div>
+        </section>
+
+        <!----------------------FOOTER----------------------->
+        <section class='footer' id='footer'>
+
+        </section>
+    </div>
+</body>
+{{! end }}
+
+<script src='/js/loader.js'></script>
+<script src='/js/navigation.js'></script>
+
+<script src='/js/footer.js'></script>
+<script src='/js/darkmode.js'></script>

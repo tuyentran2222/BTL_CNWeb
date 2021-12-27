@@ -1,5 +1,8 @@
 const newsRouter = require('./news');
 const siteRouter = require('./site');
+const answerRouter = require('./answers');
+const questionRouter = require('./questions');
+const lessonRouter = require('./lessons');
 const courseRouter = require('./courses');
 const meRouter = require('./me');
 const userRouter = require('./users');
@@ -7,6 +10,9 @@ const sessionRouter = require('./session');
 function route(app) {
     app.use('/login', sessionRouter);
     app.use('/users', userRouter);
+    app.use('/answers', answerRouter);
+    app.use('/questions', questionRouter);
+    app.use('/lessons', lessonRouter);
     app.use('/courses', courseRouter);
     app.use('/me', meRouter);
     app.use('/news', newsRouter);

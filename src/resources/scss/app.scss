@@ -1,12 +1,11 @@
 @import 'variables';
-h1 {
-    color: $red-color;
-}
-
 h2 {
-    color: green;
+    color: blue;
 }
 
 .card-course-item {
-    margin-top: 17px;
+    margin-top: 20px;
+}
+.invalid {
+    border-color: red;
 }
