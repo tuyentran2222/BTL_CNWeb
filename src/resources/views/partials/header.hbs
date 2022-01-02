@@ -121,7 +121,7 @@
 
                     <div class='dropdown show'>
                         <a
-                            class='btn btn-secondary dropdown-toggle'
+                            class='btn btn-secondary dropdown-toggle dropbtn'
                             href='#'
                             role='button'
                             id='dropdownMenuLink'
@@ -131,14 +131,14 @@
                         >
                             {{login.name}}
                         </a>
-                        <div class='dropdown-menu' aria-labelledby='dropdownMenuLink'>
+                        <div class='dropdown-menu dropdown-content' aria-labelledby='dropdownMenuLink'>
 
                             {{#if login.admin}}
                                 <a class='dropdown-item' href='/courses/create'>Post course</a>
                                 <a class='dropdown-item' href='/me/stored/courses'>My courses</a>
                             {{/if}}
                             <form method='post' action='/login?_method=DELETE'>
-                                <button type='submit' class='btn btn-primary dropdown-item'>Log out</button>
+                                <button type='submit' class='btn btn-primary dropdown-item' style="width:100%"><i class='bx bxs-log-out'></i>Log out</button>
                             </form>
                         </div>
                     </div>
@@ -186,28 +186,9 @@
                     </a>
                 </li>
 
-            {{/if}}
-            <li class='nav__item' style='display: flex; align-items: center;'>
-                <i
-                    class='bx bxs-toggle-left nav__icon'
-                    id='light'
-                    status='light'
-                    hiddenicon='false'
-                    style='font-size:2.25rem; transition: width 2s;'
-                    onclick='toggleDarkModeStatus(event)'
-                ></i>
-                <i
-                    class='bx bxs-toggle-right nav__icon'
-                    id='dark'
-                    status='dark'
-                    hiddenicon='true'
-                    style='font-size:2.25rem; '
-                    onclick='toggleDarkModeStatus(event)'
-                ></i>
-                <span class='nav__name'>Dark mode</span>
-            </li>
-        </ul>
+            {{/if}}    
     </div>
+            
 </nav>
 <script src='/js/darkmode.js'></script>
 <script>
