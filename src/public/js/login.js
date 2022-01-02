@@ -1,4 +1,6 @@
 let dark = localStorage.getItem('dark');
+let header = document.getElementsByTagName('header')[0];
+header.style.display = "none"
 if (dark == 'true') {
   let root = document.querySelector(':root');
     root.style.setProperty('--background-color', 'black');
@@ -7,10 +9,9 @@ if (dark == 'true') {
     root.style.setProperty('--border-none', 'var(--border)');
     root.style.setProperty('--background-color-item', 'black');
     root.style.setProperty('--title-color', '#FFFFFF');
-    console.log('123')
 }
 let signin_form = document.querySelector('#signin-form');
-let signin_btn = document.getElementById('signin-btn');
+let signin_btn = document.getElementById('signup-btn');
 
 const validateEmail = (email) => {
     return String(email)
@@ -21,18 +22,18 @@ const validateEmail = (email) => {
   };
 
 let password ="";
-function checkSignUpInput(input) {
-
+function checkLoginInput(input) {
     let value = input.value.trim();
     let form_group = input.parentElement;
     let err_span = signin_form.querySelector(`span[data-err-for="${input.id}"]`);
-    
+    let check = true;
     switch (input.getAttribute('type')) {
         case 'email': {
             if (value.length === 0) {
                 form_group.classList.add('error');
                 form_group.classList.remove('success');
                 err_span.innerHTML = 'Email is not empty';
+                check = false;
                 break;
             }
             
@@ -40,6 +41,7 @@ function checkSignUpInput(input) {
                 form_group.classList.add('error');
                 form_group.classList.remove('success');
                 err_span.innerHTML = 'Email is invalid';
+                check = false;
                 break;
             }
             else {
@@ -50,11 +52,11 @@ function checkSignUpInput(input) {
             break;
         }
         case 'password' : {
-            
             if (value.length < 6) {
                 form_group.classList.add('error');
                 form_group.classList.remove('success');
                 err_span.innerHTML = 'Password must be at least 6 characters';
+                check = false;
             }
             else {
                 form_group.classList.add('success');
@@ -69,6 +71,7 @@ function checkSignUpInput(input) {
                 form_group.classList.add('error');
                 form_group.classList.remove('success');
                 err_span.innerHTML = 'Full name is not empty';
+                check = false;
             }
             else {
                 form_group.classList.add('success');
@@ -105,21 +108,27 @@ function checkSignUpInput(input) {
             }
         };
     }
+    console.log(check);
+    if (check) {
+        signin_btn.removeAttribute('disabled');
+    }
+    else {
+        signin_btn.setAttribute('disabled', 'disabled')
+    }
 }
 
-function checkSignUpForm() {
+function checkLoginForm() {
     let inputs = signin_form.querySelectorAll('.form-group__input');
-    inputs.forEach((input) => checkSignUpInput(input))
+    inputs.forEach((input) => checkLoginInput(input))
 }
 signin_btn.onclick = (event) => {
-    event.preventDefault();
-    checkSignUpForm();
-    swal("Welcome!", "Login successfully!", "success");
+    checkLoginForm();
+    // swal("Welcome!", "Login successfully!", "success");
 }
 
 let inputs = signin_form.querySelectorAll('.form-group__input');
 inputs.forEach(input => {
     input.addEventListener('keyup', () => {
-        checkSignUpInput(input);
+        checkLoginInput(input);
     })
 })

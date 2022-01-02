@@ -1,32 +1,51 @@
-<div class='mt-4'>
-    <h2>Add answer</h2>
-    <a
-        href='/me/stored/answers/{{question._id}}'
-        class='btn btn-primary active'
-        role='button'
-        aria-pressed='true'
-    >Back</a>
-    <form method='post' action='/answers/store/{{question._id}}'>
-        <div class='form-group'>
 
-            <label for='content'>Answer</label>
-            <input class='form-control' id='content' placeholder='Enter answer' name='content' /><br
-            />
-            <span> Is true ?</span>
-            <div class='form-check'>
-                <input
-                    class='form-check-input'
-                    type='checkbox'
-                    value='true'
-                    name='isTrue'
-                    id='flexCheckChecked'
-                />
-                <label class='form-check-label' for='flexCheckChecked'>
-                    Yes
-                </label>
-            </div>
+
+<div class="container">
+    <div class="add-course">
+        <div class="left-sidebar col-3">
+            <ul>
+                <li style=""><a href="/courses/create">Add Course</a></li>
+                <li><a href="#">Add Lesson</a></li>
+            </ul>
         </div>
+        <div class="main-content col-9">
+                <div class=''>
+                    <div class='mt-4'>
+                        <div class="header-title">
+                            <h2>Add answer</h2>
+                            <a
+                                href='/me/stored/answers/{{question._id}}'
+                                class='btn btn-danger active'
+                                role='button'
+                                aria-pressed='true'
+                            >Back</a>
+                        </div>
+                        
+                        <form method='post' action='/answers/store/{{question._id}}'>
+                            <div class='form-group'>
 
-        <button type='submit' class='btn btn-primary'>Add answer</button>
-    </form>
+                                <label for='content1'>Answer</label>
+                                <input class='form-control col-12 form-add-course' id='content1' placeholder='Enter answer' name='content' /><br
+                                />
+                                <span> Is true ?</span>
+                                <div class='form-check'>
+                                    <input
+                                        class='form-check-input'
+                                        type='checkbox'
+                                        value='true'
+                                        name='isTrue'
+                                        id='flexCheckChecked'
+                                    />
+                                    <label class='form-check-label' for='flexCheckChecked'>
+                                        Yes
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type='submit' class='btn btn-primary'>Add answer</button>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    </div>
 </div>

@@ -68,11 +68,6 @@
 <div class='s-container'>
     <div class='register-container'>
         <div class='register'>
-            {{#if errorMessage}}
-                <div class='alert alert-danger' role='alert'>
-                    {{errorMessage}}
-                </div>
-            {{/if}}
             <form method='post' class='form-register' id='register-form' action='create' novalidate>
                 <a href='#' class='form-logo'>
                     <h2 style='text-align: center; font-size: 2rem;'>E Learning</h2>
@@ -179,8 +174,13 @@
                     />
                     <span class='form-input-err-msg' data-err-for='signup-birthday'></span>
                 </div>
+                {{#if errorMessage}}
+                    <div class='alert alert-danger' style=" text-align:center;color:red; background-color: aqua; " role='alert'>
+                        {{errorMessage}}
+                    </div>
+                {{/if}}
 
-                <button type='submit' class='button btn-primary signup_btn' id='signup-btn'>Sign up</button>
+                <button type='submit' class='button btn-primary signup_btn' id='signup-btn' disabled="disabled">Sign up</button>
                 <div style='text-align: center;'>
                     You have an account?
                     <span class='form-txt'>

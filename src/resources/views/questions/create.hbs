@@ -1,24 +1,42 @@
-<div class='mt-4'>
-    <h2>Add question</h2>
-    <a
-        href='/me/stored/questions/{{lesson._id}}'
-        class='btn btn-primary active'
-        role='button'
-        aria-pressed='true'
-    >Back</a>
-    <form method='post' action='/questions/store/{{lesson._id}}'>
-        <div class='form-group'>
-
-            <label for='content'>Question</label>
-            <textarea
-                class='form-control'
-                id='content'
-                placeholder='Enter content'
-                name='content'
-            ></textarea>
-
+<div class="container">
+    <div class="add-course">
+        <div class="left-sidebar col-3">
+            <ul>
+                <li style=""><a href="/courses/create">Add Course</a></li>
+                <li><a href="#">Add Lesson</a></li>
+            </ul>
         </div>
+        <div class="main-content col-9">
+                <div class=''>
+                    <div class='mt-4'>
+                        <div class="header-title">
+                            <h2>Add question</h2>
+                            <a
+                                href='/me/stored/questions/{{lesson._id}}'
+                                class='btn btn-danger'
+                                role='button'
+                                aria-pressed='true'
+                            >Back</a>
+                        </div>
+                        
+                        <form method='post' action='/questions/store/{{lesson._id}}'>
+                            <div class='form-group'>
 
-        <button type='submit' class='btn btn-primary'>Add question</button>
-    </form>
+                                <label for='content'>Question</label>
+                                <textarea
+                                    class='form-control col-12'
+                                    id='content1'
+                                    placeholder='Enter content'
+                                    name='content'
+                                    rows="3"
+                                ></textarea>
+
+                            </div>
+
+                            <button type='submit' class='btn btn-primary'>Add question</button>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    </div>
 </div>

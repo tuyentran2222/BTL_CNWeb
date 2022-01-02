@@ -1,80 +1,5 @@
-<div class='container'>
-    <div class='mt-4'>
-        <h2>Danh sách khóa học</h2>
-        <table class='table'>
-            <thead>
-                <tr>
-                    <th scope='col'>ID</th>
-                    <th scope='col'>Name</th>
-                    <th scope='col'>Description</th>
-                    <th scope='col'>Type</th>
-                    <th scope='col'>Created At</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each items}}
-                    <tr>
-                        <th scope='row'>{{sum @index 1}}</th>
-                        <td>{{this.name}}</td>
-                        <td>{{this.description}}</td>
-                        <td>{{this.type}}</td>
-                        <td>{{this.createdAt}}</td>
-                        <td>
-                            <a
-                                href='/me/stored/lessons/{{this._id}}'
-                                class='btn btn-secondary btn-lg active'
-                                aria-pressed='true'
-                            >Show lesson</a>
-                        </td>
-                        <td>
-                            <a
-                                href='/courses/{{this._id}}/edit'
-                                class='btn btn-secondary btn-lg active'
-                                aria-pressed='true'
-                            >Sửa</a>
-                        </td>
-                        <td>
 
-                            <a
-                                href='#'
-                                class='btn btn-secondary btn-lg active'
-                                aria-pressed='true'
-                                data-toggle='modal'
-                                data-target='#exampleModal'
-                                data-id='{{this._id}}'
-                            >Xóa</a>
-                        </td>
-                    </tr>
-                {{/each}}
-            </tbody>
-        </table>
-
-    </div>
-
-    <div class='modal' id='exampleModal' tabindex='-1' role='dialog'>
-        <div class='modal-dialog' role='document'>
-            <div class='modal-content'>
-                <div class='modal-header'>
-                    <h5 class='modal-title'>Xóa khóa học?</h5>
-                    <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                        <span aria-hidden='true'>&times;</span>
-                    </button>
-                </div>
-                <div class='modal-body'>
-                    <p>Bạn có muốn xóa khóa học này?</p>
-                </div>
-                <div class='modal-footer'>
-                    <button id='btn-delete-lesson' type='button' class='btn btn-danger'>Xóa bỏ</button>
-                    <button
-                        type='button'
-                        class='btn btn-secondary'
-                        data-dismiss='modal'
-                    >Hủy</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    
 <form method='post' name='delete-form'></form>
 <script>
     document.addEventListener('DOMContentLoaded',function(){ var lessonId; var deleteForm =
@@ -84,3 +9,186 @@
     deleteForm.action = '/courses/'+ courseId +'?_method=DELETE'; deleteForm.submit(); } });
 
 </script>
+
+<div class="container">
+    <div class="add-course">
+        <div class="left-sidebar col-2">
+            <ul>
+                <li><a href="/courses/create">All Courses</a></li>
+                <li class="sidebar-active"><a href="/me/stored/courses">All Courses</a></li>
+            </ul>
+        </div>
+        <div class="main-content col-10">
+                <div class=''>
+                    <div class='mt-4'>
+                        <div class='mt-4'>
+                                <h2>Course Lists</h2>
+                                <table class='table styled-table'>
+                                    <thead>
+                                        <tr>
+                                            <th scope='col'>ID</th>
+                                            <th scope='col'>Name</th>
+                                            <th scope='col'>Description</th>
+                                            <th scope='col'>Type</th>
+                                            <th scope='col'>Created At</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each items}}
+                                            <tr>
+                                                <th scope='row'>{{sum @index 1}}</th>
+                                                <td>{{this.name}}</td>
+                                                <td>{{this.description}}</td>
+                                                <td>{{this.type}}</td>
+                                                <td>{{this.createdAt}}</td>
+                                                <td>
+                                                    
+                                                    <a
+                                                        href='/me/stored/lessons/{{this._id}}'
+                                                        class='btn btn-secondary btn-lg active'
+                                                        aria-pressed='true'
+                                                    ><i class='bx bx-show'></i></a>
+                                                
+                                                    <a
+                                                        href='/courses/{{this._id}}/edit'
+                                                        class='btn btn-secondary btn-lg active'
+                                                        aria-pressed='true'
+                                                    ><i class='bx bx-edit' style="margin-left:10px; color:#0C90D6;"></i></a>
+                                                
+
+                                                    <a
+                                                        href='#'
+                                                        class='btn btn-secondary btn-lg active'
+                                                        aria-pressed='true'
+                                                        data-toggle='modal'
+                                                        data-target='#exampleModal'
+                                                        data-id='{{this._id}}'
+                                                    ><i class='bx bx-x-circle' style="margin-left:10px; color: red;" ></i></a>
+                                                </td>
+                                            </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                            <div class='modal' id='exampleModal' tabindex='-1' role='dialog'>
+                                <div class='modal-dialog' role='document'>
+                                    <div class='modal-content'>
+                                        <div class='modal-header'>
+                                            <h5 class='modal-title'>Xóa khóa học?</h5>
+                                            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                                <span aria-hidden='true'>&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class='modal-body'>
+                                            <p>Bạn có muốn xóa khóa học này?</p>
+                                        </div>
+                                        <div class='modal-footer'>
+                                            <button id='btn-delete-lesson' type='button' class='btn btn-danger'>Xóa bỏ</button>
+                                            <button
+                                                type='button'
+                                                class='btn btn-secondary'
+                                                data-dismiss='modal'
+                                            >Hủy</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h2>Modal Example</h2>
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close1">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close1")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>

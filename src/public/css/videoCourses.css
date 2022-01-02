@@ -14,9 +14,12 @@
 .video-lesson__image > img {
     max-width: 400px;
 }
+
 .lessons {
     flex-grow: 2;
+    flex-direction: column;
 }
+
 .show-more-container {
     text-align: center;
 }

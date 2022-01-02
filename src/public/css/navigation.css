@@ -8,6 +8,7 @@
   z-index: var(--z-fixed);
   transition: .4s;
 }
+
   
 /*=================== NAV ===============*/
 .nav {
@@ -15,6 +16,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 9999;
+}
+
+.nav__menu {
+  z-index: 9999;
 }
 
 .nav__item:hover, .nav__item:active {
@@ -105,10 +111,6 @@
   :root {
     font-size: 14px !important;
   }
-
-  .search-course {
-      margin-top: 100px;
-  }
 }
 
   
@@ -196,15 +198,12 @@
     .search-bar__input {
         width: 50%;
     }
-    .search-course {
-        margin-top: 130px;
-    }
     .carousel {
         width: 930px;
     }
 }
 
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1400px) {
     .carousel {
         width: 1240px;
     }

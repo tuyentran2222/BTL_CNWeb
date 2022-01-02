@@ -51,3 +51,74 @@
         </form>
     </div>
 </div>
+
+<div class="container">
+    <div class="add-course">
+        <div class="left-sidebar col-3">
+            <ul>
+                <li style=""><a href="/courses/create">Add Course</a></li>
+                <li><a href="#">Add Lesson</a></li>
+            </ul>
+        </div>
+        <div class="main-content col-9">
+                <div class=''>
+                    <div class='mt-4'>
+                        <div class="header-title">
+                            <h2>Add lesson</h2>
+                           <a
+                                href='/me/stored/lessons/{{course._id}}'
+                                class='btn btn-primary active'
+                                role='button'
+                                aria-pressed='true'
+                            >Back</a>
+                        </div>
+                        
+                        <form method='post' action='/lessons/store/{{course._id}}' enctype='multipart/form-data'>
+                            <div class='form-group'>
+                                 
+        
+                                <label for='name'>Name</label>
+                                <input
+                                    type='text'
+                                    class='form-control col-12 form-add-course'
+                                    id='name'
+                                    placeholder='Enter name'
+                                    name='name'
+                                />
+                                <label for='transcription'>Transcription</label>
+                                <textarea
+                                    class='form-control col-12 form-add-course'
+                                    iD='transcription'
+                                    placeholder='Enter transcription'
+                                    name='transcription'
+                                ></textarea>
+                                {{#if (isVideo course.type)}}
+                                    <label for='videoid'>Video Id</label>
+                                    <input
+                                        type='text'
+                                        class='form-control col-12 form-add-course'
+                                        id='videoid'
+                                        placeholder='Enter videoid'
+                                        name='contentId'
+                                    />
+                                {{else}}
+                                    <label for='audioid'>Audio Id</label>
+                                    <input
+                                        type='text'
+                                        class='form-control col-12 form-add-course'
+                                        id='audioid'
+                                        placeholder='Enter audioid'
+                                        name='contentId'
+                                    />
+                                {{/if}}
+                                <label for='image'>Image</label>
+                                <input type='file' class='form-control col-12 form-add-course' id='image' name='image' style="border: 1px solid black;" />
+                            </div>
+
+                            <button type='submit' class='btn btn-primary'>Add course</button>
+                        </form> 
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

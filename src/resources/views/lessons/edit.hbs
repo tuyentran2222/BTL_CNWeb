@@ -1,45 +1,64 @@
-<div class='mt-4'>
-    <h2>Edit lesson</h2>
-    <a
-        href='/me/stored/lessons/{{lesson.course_id}}'
-        class='btn btn-primary active'
-        role='button'
-        aria-pressed='true'
-    >Back</a>
-    <form method='post' action='/lessons/{{lesson._id}}?_method=PUT' enctype='multipart/form-data'>
-        <div class='form-group'>
-            <label for='name'>Name</label>
-            <input
-                type='text'
-                class='form-control'
-                id='name'
-                placeholder='Enter name'
-                name='name'
-                value='{{lesson.name}}'
-            />
-            <label for='transcription'>Transcription</label>
-            <input
-                type='text'
-                class='form-control'
-                id='transcription'
-                placeholder='Enter transcription'
-                name='transcription'
-                value='{{lesson.transcription}}'
-            />
-            <label for='videoid'>Video Id</label>
-            <input
-                type='text'
-                class='form-control'
-                id='videoid'
-                placeholder='Enter videoid'
-                name='videoId'
-                value='{{lesson.videoId}}'
-            />
 
-            <label for='image'>Image</label>
-            <input type='file' class='form-control' id='image' name='image' />
+
+<div class="container">
+    <div class="add-course">
+        <div class="left-sidebar col-3">
+            <ul>
+                <li><a href="/courses/create">All Courses</a></li>
+                <li class="sidebar-active"><a href="/me/stored/courses">All Courses</a></li>
+            </ul>
         </div>
+        <div class="main-content col-9">
+                <div class=''>
+                    <div class='mt-4'>
+                        <div class="header-title">
+                            <h2>Edit lesson</h2>
+                            <a
+                                href='/me/stored/lessons/{{lesson.course_id}}'
+                                class='btn btn-danger '
+                                role='button'
+                                aria-pressed='true'
+                            >Back</a>
+                        </div>
+                        
+                            <form method='post' action='/lessons/{{lesson._id}}?_method=PUT' enctype='multipart/form-data'>
+                                <div class='form-group'>
+                                    <label for='name'>Name</label>
+                                    <input
+                                        type='text'
+                                        class='form-control col-12 form-add-course'
+                                        id='name'
+                                        placeholder='Enter name'
+                                        name='name'
+                                        value='{{lesson.name}}'
+                                    />
+                                    <label for='transcription'>Transcription</label>
+                                    <input
+                                        type='text'
+                                        class='form-control col-12 form-add-course'
+                                        id='transcription'
+                                        placeholder='Enter transcription'
+                                        name='transcription'
+                                        value='{{lesson.transcription}}'
+                                    />
+                                    <label for='videoid'>Video Id</label>
+                                    <input
+                                        type='text'
+                                        class='form-control col-12 form-add-course'
+                                        id='videoid'
+                                        placeholder='Enter videoid'
+                                        name='videoId'
+                                        value='{{lesson.videoId}}'
+                                    />
 
-        <button type='submit' class='btn btn-primary'>Sửa khóa học</button>
-    </form>
+                                    <label for='image'>Image</label>
+                                    <input type='file' class='form-control col-12 form-add-course' id='image' name='image' style="border: 1px solid black;" />
+                                </div>
+
+                                <button type='submit' class='btn btn-primary'>Submit</button>
+                            </form>
+                    </div>
+                </div>
+        </div>
+    </div>
 </div>

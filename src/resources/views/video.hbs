@@ -1,34 +1,13 @@
 <head>
-    <link
-        rel='icon'
-        href='https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg'
-        type='image/x-icon'
-    />
-    <link rel='preconnect' href='https://fonts.gstatic.com' />
-    <link
-        href='https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap'
-        rel='stylesheet'
-    />
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet' />
     <link rel='stylesheet' href='/css/index.css' />
     <link rel='stylesheet' href='/css/videoCourses.css' />
     <script src='/js/icons.js'></script>
 </head>
 
 {{! begin }}
-<body onload='loader()'>
-    <!-------------------SPINNER--------------------------->
-    <div id="parentLoader" style="height:100vh;">
-        <div id="loader"></div>
-    </div>
 
-    <!--------------------CONTENT-------------------------->
-    <div id='content' class='animate-top'>
 
-        <!---------------------TOP NAVIGATION-------------------->
-        {{! <header class='header' id='header'>
-
-        </header> }}
+    <!--------------------BODY CONTENT-------------------------->
 
         <!--------------------SEARCH BAR------------------------>
        
@@ -45,7 +24,7 @@
         <!--------------------COURSE LISTS---------------------->
         <section class="video-course-list" >
             <div class="container">
-                <h2>Course Video Lists</h2>
+                <h2>Course Lists</h2>
             </div>
             <div class="container">
                 <div class="course-list">
@@ -113,8 +92,7 @@
         <section class='footer' id='footer'>
 
         </section>
-    </div>
-</body>
+ 
 {{! end }}
 
 <script src='/js/loader.js'></script>

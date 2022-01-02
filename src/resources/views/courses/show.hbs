@@ -19,10 +19,6 @@
 
 
 <head>
-    <link rel = "icon" href ="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" type = "image/x-icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/videoCourses.css">
     <script src="/js/icons.js"></script>
@@ -55,13 +51,12 @@
                   <!-- begin -->
                    {{#each lessons}}
                 <div class="lesson-card">
-                 
                     <div class="lesson-card-left">
                           <a href="/lessons/{{this.slug}}" class="lesson-card__index">
                               <b>{{this.name}}</b>
                           </a>
                           <div class="lesson-card__time">
-                            <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
+                            <i class='bx bx-time-five' style='color:#7d7d7d'>{{this.createdAt}}</i> 
                           </div>
                           <div class="lesson-card__content">
                             How to make radical climate action the new normal

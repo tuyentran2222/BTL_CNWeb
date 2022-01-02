@@ -1,18 +1,14 @@
 let dark = localStorage.getItem('dark');
+
 if (dark == 'true') {
-<<<<<<< HEAD
-    let root = document.querySelector(':root');
-=======
   let root = document.querySelector(':root');
->>>>>>> 4199fdb04bb85cdaf8d6dfc3295c3d44003e7902
     root.style.setProperty('--background-color', 'black');
     root.style.setProperty('--text-color', '#FFFFFF');
     root.style.setProperty('color', '#FFFFFF');
     root.style.setProperty('--border-none', 'var(--border)');
     root.style.setProperty('--background-color-item', 'black');
     root.style.setProperty('--title-color', '#FFFFFF');
-<<<<<<< HEAD
-    console.log('123');
+
 }
 
 function openTab(event, pageName) {
@@ -66,11 +62,10 @@ function checkAnswer() {
             x[i].children[1].style.color = 'red';
         }
     }
-=======
-    console.log('123')
+
 }
 
-function openTab(event,pageName) {
+function openTab(event,pageName) {console.log(2);
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tab-content");
   
@@ -131,22 +126,21 @@ function checkAnswer(n) {
       // }
     }
   }
-  
->>>>>>> 4199fdb04bb85cdaf8d6dfc3295c3d44003e7902
+
 }
 document.getElementById('submit-answer').addEventListener('click', checkAnswer);
 document.getElementById('reset-answer').addEventListener('click', resetAnswer);
 
 function resetAnswer() {
-<<<<<<< HEAD
+
     var x = document.getElementsByClassName('answer_card');
 
     for (let i = 0; i < x.length; i++) {
         x[i].children[1].style.color = 'black';
         x[i].children[0].checked = false;
     }
-}
-=======
+
+
   n=3;
   for (let i=1;i<=n;i++) {
     let markedCheckbox = document.getElementsByName('question'+i); 
@@ -156,4 +150,4 @@ function resetAnswer() {
     }
   }
 }
->>>>>>> 4199fdb04bb85cdaf8d6dfc3295c3d44003e7902
+

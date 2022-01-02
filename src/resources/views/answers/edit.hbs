@@ -1,48 +1,65 @@
-<div class='mt-4'>
-    <h2>Edit answer</h2>
-    <a
-        href='/me/stored/answers/{{answer.question_id}}'
-        class='btn btn-primary active'
-        role='button'
-        aria-pressed='true'
-    >Back</a>
-    <form method='post' action='/answers/{{answer._id}}?_method=PUT'>
-        <div class='form-group'>
-
-            <label for='content'>Answer</label>
-            <input
-                class='form-control'
-                id='content'
-                placeholder='Enter answer'
-                name='content'
-                value='{{answer.content}}'
-            /><br />
-            <span> Is true ?</span>
-            <div class='form-check'>
-                {{#if answer.isTrue}}
-                    <input
-                        class='form-check-input'
-                        type='checkbox'
-                        value='true'
-                        name='isTrue'
-                        id='flexCheckChecked'
-                        checked
-                    />
-                {{else}}
-                    <input
-                        class='form-check-input'
-                        type='checkbox'
-                        value='true'
-                        name='isTrue'
-                        id='flexCheckChecked'
-                    />
-                {{/if}}
-                <label class='form-check-label' for='flexCheckChecked'>
-                    Yes
-                </label>
-            </div>
+<div class="container">
+    <div class="add-course">
+        <div class="left-sidebar col-3">
+            <ul>
+                <li><a href="/courses/create">All Courses</a></li>
+                <li class="sidebar-active"><a href="/me/stored/courses">All Courses</a></li>
+            </ul>
         </div>
+        <div class="main-content col-9">
+                <div class=''>
+                    <div class='mt-4'>
+                        <div class="header-title">
+                            <h2>Edit answer</h2>
+                            <a
+                                href='/me/stored/answers/{{answer.question_id}}'
+                                class='btn btn-danger active'
+                                role='button'
+                                aria-pressed='true'
+                            >Back</a>
+                        </div>
+                        
+                        <form method='post' action='/answers/{{answer._id}}?_method=PUT'>
+                                <div class='form-group'>
 
-        <button type='submit' class='btn btn-primary'>Edit answer</button>
-    </form>
+                                    <label for='content1'>Answer</label>
+                                    <input
+                                        class='form-control col-12 form-add-course'
+                                        id='content1'
+                                        placeholder='Enter answer'
+                                        name='content'
+                                        value='{{answer.content}}'
+                                    /><br />
+                                    <span> Is true ?</span>
+                                    <div class='form-check'>
+                                        {{#if answer.isTrue}}
+                                            <input
+                                                class='form-check-input'
+                                                type='checkbox'
+                                                value='true'
+                                                name='isTrue'
+                                                id='flexCheckChecked'
+                                                checked
+                                            />
+                                        {{else}}
+                                            <input
+                                                class='form-check-input'
+                                                type='checkbox'
+                                                value='true'
+                                                name='isTrue'
+                                                id='flexCheckChecked'
+                                            />
+                                        {{/if}}
+                                        <label class='form-check-label' for='flexCheckChecked'>
+                                            Yes
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <button type='submit' class='btn btn-primary'>Edit answer</button>
+                            </form>
+                    </div>
+                </div>
+        </div>
+    </div>
 </div>

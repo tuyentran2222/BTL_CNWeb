@@ -1,4 +1,6 @@
 let dark = localStorage.getItem('dark');
+let header = document.getElementsByTagName('header')[0];
+header.style.display = "none"
 if (dark == 'true') {
     let root = document.querySelector(':root');
     root.style.setProperty('--background-color', 'black');
@@ -26,20 +28,21 @@ function checkSignUpInput(input) {
     let value = input.value.trim();
     let form_group = input.parentElement;
     let err_span = signup_form.querySelector(`span[data-err-for="${input.id}"]`);
-
+    let check = true;
     switch (input.getAttribute('type')) {
         case 'email': {
             if (value.length === 0) {
                 form_group.classList.add('error');
                 form_group.classList.remove('success');
                 err_span.innerHTML = 'Email is not empty';
+                check = false;
                 break;
             }
 
             if (!validateEmail(value)) {
                 form_group.classList.add('error');
                 form_group.classList.remove('success');
-                err_span.innerHTML = 'Email is invalid';
+                err_span.innerHTML = 'Email is invalid';check = false;
                 break;
             } else {
                 form_group.classList.add('success');
@@ -56,6 +59,7 @@ function checkSignUpInput(input) {
                     form_group.classList.add('error');
                     form_group.classList.remove('success');
                     err_span.innerHTML = 'Confirm password not match with password';
+                    check = false;
                     break;
                 }
             }
@@ -63,9 +67,11 @@ function checkSignUpInput(input) {
                 form_group.classList.add('error');
                 form_group.classList.remove('success');
                 err_span.innerHTML = 'Password must be at least 6 characters';
+                check = false;
             } else {
                 form_group.classList.add('success');
                 form_group.classList.remove('error');
+                check = false;
                 err_span.innerHTML = '';
             }
             break;
@@ -74,10 +80,12 @@ function checkSignUpInput(input) {
             if (value.length === 0) {
                 form_group.classList.add('error');
                 form_group.classList.remove('success');
+                check = false;
                 err_span.innerHTML = 'Full name is not empty';
             } else {
                 form_group.classList.add('success');
                 form_group.classList.remove('error');
+                
                 err_span.innerHTML = '';
             }
             break;
@@ -87,6 +95,7 @@ function checkSignUpInput(input) {
             if (value === '') {
                 form_group.classList.add('error');
                 form_group.classList.remove('success');
+                check = false;
                 err_span.innerHTML = 'Please select birthday';
                 break;
             }
@@ -99,6 +108,7 @@ function checkSignUpInput(input) {
             if (birthday > currentDay) {
                 form_group.classList.add('error');
                 form_group.classList.remove('success');
+                check = false;
                 err_span.innerHTML = 'Please select birthday less than today';
                 break;
             } else {
@@ -108,12 +118,19 @@ function checkSignUpInput(input) {
             }
         }
     }
+    if (check) {
+        document.getElementById('signup-btn').removeAttribute('disabled');
+    }
+    else {
+        document.getElementById('signup-btn').setAttribute('disabled', 'disabled')
+    }
 }
 
 function checkSignUpForm() {
     let inputs = signup_form.querySelectorAll('.form-group__input');
     inputs.forEach((input) => checkSignUpInput(input));
 }
+
 signup_btn.onclick = (event) => {
     checkSignUpForm();
 };

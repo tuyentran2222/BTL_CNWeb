@@ -1,52 +1,63 @@
-<div class='container'>
-    <div class='mt-4'>
-        <h2>Danh sách câu hỏi</h2>
-        <table class='table'>
-            <thead>
-                <tr>
-                    <th scope='col'>ID</th>
-                    <th scope='col'>Question</th>
-                    <th scope='col'>Created At</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each items}}
-                    <tr>
-                        <th scope='row'>{{sum @index 1}}</th>
-                        <td>{{this.content}}</td>
-                        <td>{{this.createdAt}}</td>
-                        <td>
-                            <a
-                                href='/me/stored/answers/{{this._id}}'
-                                class='btn btn-secondary btn-lg active'
-                                aria-pressed='true'
-                            >show answer</a>
-                        </td>
-                        <td>
-                            <a
-                                href='/questions/{{this._id}}/edit'
-                                class='btn btn-secondary btn-lg active'
-                                aria-pressed='true'
-                            >Sửa</a>
-                        </td>
-                        <td>
-
-                            <a
-                                href='#'
-                                class='btn btn-secondary btn-lg active'
-                                aria-pressed='true'
-                                data-toggle='modal'
-                                data-target='#exampleModal'
-                                data-id='{{this._id}}'
-                            >Xóa</a>
-                        </td>
-                    </tr>
-                {{/each}}
-            </tbody>
-        </table>
-        <a href='/questions/create/{{lesson_id}}' class='btn btn-primary btn-lg'>Add question</a>
-
+<div class="container">
+    <div class="add-course">
+        <div class="left-sidebar col-2">
+            <ul>
+                <li><a href="/courses/create">All Courses</a></li>
+                <li class="sidebar-active"><a href="/me/stored/courses">All Courses</a></li>
+            </ul>
+        </div>
+        <div class="main-content col-10">
+                <div class=''>
+                    <div class='mt-4'>
+                        <div class='mt-4'>
+                                <h2>Question Lists</h2>
+                                <table class='table styled-table'>
+                                    <thead>
+                                        <tr>
+                                           <th scope='col'>ID</th>
+                                            <th scope='col'>Question</th>
+                                            <th scope='col'>Created At</th>
+                                            <th scope='col'>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {{#each items}}
+                                        <tr>
+                                            <th scope='row'>{{sum @index 1}}</th>
+                                            <td>{{this.content}}</td>
+                                            <td>{{this.createdAt}}</td>
+                                            <td>
+                                                <a
+                                                    href='/me/stored/answers/{{this._id}}'
+                                                    class='btn btn-secondary btn-lg active'
+                                                    aria-pressed='true'
+                                                ><i class='bx bx-show'></i></a>
+                                                <a
+                                                    href='/questions/{{this._id}}/edit'
+                                                    class='btn btn-secondary btn-lg active'
+                                                    aria-pressed='true'
+                                                ><i class='bx bx-edit' style="margin-left:10px; color:#0C90D6;"></i></a>
+                                                <a
+                                                    href='#'
+                                                    class='btn btn-secondary btn-lg active'
+                                                    aria-pressed='true'
+                                                    data-toggle='modal'
+                                                    data-target='#exampleModal'
+                                                    data-id='{{this._id}}'
+                                                ><i class='bx bx-x-circle' style="margin-left:10px; color: red;" ></i></a>
+                                            </td>
+                                        </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                            <a href='/questions/create/{{lesson_id}}' class='btn btn-primary btn-lg' style="width: 150px;display: block;display:flex;align-items: center;">Add question</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
     </div>
+</div>
+<div class='container'>
 
     <div class='modal' id='exampleModal' tabindex='-1' role='dialog'>
         <div class='modal-dialog' role='document'>
