@@ -1,44 +1,9 @@
-{{!-- <h1>Lessons detail</h1>
-<div class='mt-4'>
-    <div class='row'>
-        <div class='col-md-9'>
-            <h2>{{lesson.name}}</h2>
 
-            <iframe
-                title='vimeo-player'
-                src='https://player.vimeo.com/video/{{lesson.contentId}}'
-                width='640'
-                height='360'
-                frameborder='0'
-                allowfullscreen
-            ></iframe>
-
-            <p>{{lesson.transcription}}</p>
-        </div>
-    </div>
-</div> --}}
-
-<head>
-    <link rel='preconnect' href='https://fonts.gstatic.com' />
-    <link
-        href='https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap'
-        rel='stylesheet'
-    />
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet' />
     <link rel='stylesheet' href='/css/lesson.css' />
     <link rel='stylesheet' href='/css/index.css' />
     <script src='/js/icons.js'></script>
-</head>
 
 
-<body onload="loader()">
-    <!-------------------SPINNER--------------------------->
-    <div id="parentLoader" style="height:100vh;">
-        <div id="loader"></div>
-    </div>
-
-    <!--------------------CONTENT-------------------------->
-    <div id="content" class="animate-top" >
         <!----------------TOP NAVIGATION-------------------->
         {{!-- <header class="header" id="header">
             
@@ -61,7 +26,7 @@
                        <iframe
                 title='vimeo-player'
                 src='https://player.vimeo.com/video/{{lesson.contentId}}'
-               width="100%" height="600px"
+                width="100%" height="600px"
                 frameborder='0'
                 allowfullscreen
             ></iframe>
@@ -278,6 +243,8 @@
     <script src="/js/loader.js"></script>
     <script src="/js/navigation.js"></script>
     <script src="/js/footer.js"></script>
+    
     <script src="/js/darkmode.js"></script>
     <script src="/js/lesson.js"></script>
+
 </body>

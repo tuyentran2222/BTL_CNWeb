@@ -53,4 +53,4 @@ const contentHeader =
         '</ul>' +
     '</div>' +
 '</nav>';
-header.innerHTML = contentHeader;
+

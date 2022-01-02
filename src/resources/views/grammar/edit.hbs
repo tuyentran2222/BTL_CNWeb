@@ -1,0 +1,64 @@
+
+<div class="container">
+    <div class="add-course">
+        <div class="left-sidebar col-3">
+            <ul>
+                <li><a href="/courses/create">Post Courses</a></li>
+                <li ><a href="/me/stored/courses">All Courses</a></li>
+                <li class="sidebar-active"><a href="/me/stored/grammars">Grammar</a></li>
+            </ul>
+        </div>
+        <div class="main-content col-9">
+                <div class=''>
+                    <div class='mt-4'>
+                        <div class="header-title">
+                            <h2>Edit Grammar</h2>
+                            <a
+                                href='/me/stored/grammars'
+                                class='btn btn-danger'
+                                role='button'
+                                aria-pressed='true'
+                            >Back</a>
+                        </div>
+                        
+                        <form method='post' action='/grammar/{{grammar._id}}?_method=PUT' enctype='multipart/form-data'>
+                            <div class='form-group'>
+                                <label for='name'>Title</label>
+                                <input
+                                    type='text'
+                                    class='form-control col-12 form-add-course'
+                                    id='title'
+                                    placeholder='Enter name'
+                                    name='title'
+                                    value='{{grammar.title}}'
+                                />
+                                <label for='grammar_content'>Content</label>
+
+                                <textarea id="grammar_content" name="grammar_content" cols="80" rows="10" value = '{{grammar.grammar_content}}'>
+                                    {{grammar.grammar_content}}
+                                </textarea>
+
+                                <label for='description'>Description</label>
+                                <input
+                                    class='form-control col-12 form-add-course'
+                                    iD='description'
+                                    placeholder='Enter description'
+                                    name='description'
+                                     value='{{grammar.description}}'
+                                ></input>
+
+                            </div>
+
+                            <button type='submit' class='btn btn-primary'>Submit</button>
+                        </form> 
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+
+</script>
+<script>
+    CKEDITOR.replace('grammar_content')
+</script>

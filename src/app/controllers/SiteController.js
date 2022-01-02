@@ -1,5 +1,6 @@
 const Course = require('../models/Course');
 const { multipleMongooseToObject } = require('../../util/mongoose');
+const Grammar = require('../models/Grammar');
 class SiteController {
     // [GET] /
     index(req, res, next) {
@@ -43,6 +44,18 @@ class SiteController {
         }
         res.render('video', { courses: resultCourse });
     }
+
+    grammar(req, res, next) {
+        Grammar.find({})
+            .then((grammars) => {
+                console.log(grammars)
+                res.render('grammars', {
+                    grammars: multipleMongooseToObject(grammars),
+                });
+            })
+            .catch(next);
+    }
+
 }
 
 module.exports = new SiteController();

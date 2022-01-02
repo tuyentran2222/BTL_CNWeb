@@ -1,0 +1,54 @@
+
+<link rel="stylesheet" href="../css/index.css">
+<link rel="stylesheet" href="../css/videoCourses.css">
+<script src="../js/icons.js"></script>
+    <!--------------------SEARCH BAR------------------------>
+    <section class="search-course" id="search-bar">
+        
+    </section>
+
+    <!--------------------- LESSON LISTS------------------->
+    <section class="new-lesson" id="new-video-lesson">
+        <div class="container">
+            <h2>Learn Grammar</h2>
+        </div>
+        <div class="container">
+            <h2>Lessons</h2>
+        </div>
+        <div class="container video-lesson">
+            <div class="video-lesson__image">
+                <img src="../../assets/images/group24_image1.png">
+            </div>
+            <div class="lessons">
+                 <!--begin-->
+                {{#each grammars}}
+                <div class="lesson-card">
+                    <div class="lesson-card-left" style="width: 100%;">
+                          <a href='/grammar/{{this._id}}' class="lesson-card__index">
+                              <b>{{this.title}}</b>
+                          </a>
+                          <div class="lesson-card__time">
+                            <i class='bx bx-time-five' style='color:#7d7d7d'>{{this.createdAt}}</i> 
+                          </div>
+                          <div class="lesson-card__content">
+                            {{this.description}}
+                          </div>
+                    </div>    
+                </div>
+                {{/each}}
+                <!--end-->
+            </div>
+        </div>
+    </section>
+
+    <!----------------------FOOTER----------------------->
+    <section class="footer" id="footer">
+
+    </section>
+
+    <!--------------------ADD JS------------------------->
+    <script src="../js/navigation.js"></script>
+    <script src="../js/searchbar.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/darkmode.js"></script>
+    <script src="../js/index.js"></script>

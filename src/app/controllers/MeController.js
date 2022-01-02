@@ -2,6 +2,7 @@ const Lesson = require('../models/Lesson');
 const Course = require('../models/Course');
 const Answer = require('../models/Answer');
 const Question = require('../models/Question');
+const Grammar = require('../models/Grammar');
 const { multipleMongooseToObject } = require('../../util/mongoose');
 class MeController {
     //[GET] /me/stored/answers/:id
@@ -45,6 +46,16 @@ class MeController {
             .then((courses) =>
                 res.render('me/storedCourses', {
                     items: multipleMongooseToObject(courses),
+                }),
+            )
+            .catch(next);
+    }
+
+    storedGrammars(req, res, next) {
+        Grammar.find({})
+            .then((grammars) =>
+                res.render('me/storedGrammars', {
+                    items: multipleMongooseToObject(grammars),
                 }),
             )
             .catch(next);
