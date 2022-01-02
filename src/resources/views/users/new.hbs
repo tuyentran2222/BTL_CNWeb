@@ -175,12 +175,21 @@
                     <span class='form-input-err-msg' data-err-for='signup-birthday'></span>
                 </div>
                 {{#if errorMessage}}
-                    <div class='alert alert-danger' style=" text-align:center;color:red; background-color: aqua; " role='alert'>
+                    <div
+                        class='alert alert-danger'
+                        style=' text-align:center;color:red; background-color: aqua; '
+                        role='alert'
+                    >
                         {{errorMessage}}
                     </div>
                 {{/if}}
 
-                <button type='submit' class='button btn-primary signup_btn' id='signup-btn' disabled="disabled">Sign up</button>
+                <button
+                    type='submit'
+                    class='button btn-primary signup_btn'
+                    id='signup-btn'
+                    disabled='disabled'
+                >Sign up</button>
                 <div style='text-align: center;'>
                     You have an account?
                     <span class='form-txt'>

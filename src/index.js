@@ -11,6 +11,7 @@ const session = require('express-session');
 const User = require('./app/models/User');
 const multer = require('multer');
 const flash = require('connect-flash');
+const LoginStateMiddleWare = require('./app/middlewares/LoginStateMiddleWare');
 // Connect to db
 db.connect();
 
@@ -57,21 +58,7 @@ app.use(
     }),
 );
 
-app.use(async (req, res, next) => {
-    res.locals.login = {
-        admin: false,
-        status: false,
-        name: '',
-    };
-
-    if (req.session.user_id) {
-        res.locals.login.status = true;
-        const user = await User.findOne({ _id: req.session.user_id }).lean();
-        res.locals.login.admin = user.admin;
-        res.locals.login.name = user.name;
-    }
-    next();
-});
+app.use(LoginStateMiddleWare);
 // template engine
 var hbs = handlebars.create({
     extname: '.hbs',

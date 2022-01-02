@@ -6,6 +6,7 @@ class SessionController {
     new(req, res, next) {
         res.render('sessions/new', {
             oldInput: { email: '', password: '' },
+            redirect_url: req.query.redirect_url,
         });
     }
 
@@ -37,7 +38,9 @@ class SessionController {
 
         if (await bcrypt.compare(req.body.password, user.password)) {
             req.session.user_id = user._id;
-            res.redirect('/');
+            if (req.body.redirect_url) {
+                res.redirect(req.body.redirect_url);
+            } else res.redirect('/');
         } else {
             return res.status(400).render('sessions/new', {
                 errorMessage: 'Invalid email or password',

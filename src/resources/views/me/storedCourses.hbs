@@ -1,6 +1,6 @@
 
     
-<form method='post' name='delete-form'></form>
+{{!-- <form method='post' name='delete-form'></form>
 <script>
     document.addEventListener('DOMContentLoaded',function(){ var lessonId; var deleteForm =
     document.forms['delete-form']; $('#exampleModal').on('show.bs.modal', function (event) { var
@@ -8,13 +8,13 @@
     document.getElementById('btn-delete-lesson'); console.log(btn); btn.onclick= function(){
     deleteForm.action = '/courses/'+ courseId +'?_method=DELETE'; deleteForm.submit(); } });
 
-</script>
+</script> --}}
 
 <div class="container">
     <div class="add-course">
         <div class="left-sidebar col-2">
             <ul>
-                <li><a href="/courses/create">All Courses</a></li>
+                <li><a href="/courses/create">Post Courses</a></li>
                 <li class="sidebar-active"><a href="/me/stored/courses">All Courses</a></li>
                 <li><a href="/me/stored/grammars">Grammar</a></li>
             </ul>

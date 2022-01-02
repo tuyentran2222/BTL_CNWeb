@@ -1,13 +1,13 @@
-<div class="container">
-    <div class="add-course">
-        <div class="left-sidebar col-2">
+<div class='container'>
+    <div class='add-course'>
+        <div class='left-sidebar col-2'>
             <ul>
-                <li><a href="/courses/create">Post Course</a></li>
-                <li class="sidebar-active"><a href="/me/stored/courses">My Course</a></li>
-                <li><a href="/me/stored/grammars">Grammar</a></li>
+                <li><a href='/courses/create'>Post Course</a></li>
+                <li class='sidebar-active'><a href='/me/stored/courses'>My Course</a></li>
+                <li><a href='/me/stored/grammars'>Grammar</a></li>
             </ul>
         </div>
-        <div class="main-content col-10">
+        <div class='main-content col-10'>
             <div class=''>
                 <div class='mt-4'>
                     <div class='mt-4'>
@@ -32,7 +32,10 @@
                                                 href='/answers/{{this._id}}/edit'
                                                 class='btn btn-secondary btn-lg active'
                                                 aria-pressed='true'
-                                            ><i class='bx bx-edit' style="margin-left:10px; color:#0C90D6;"></i></a>
+                                            ><i
+                                                    class='bx bx-edit'
+                                                    style='margin-left:10px; color:#0C90D6;'
+                                                ></i></a>
                                             <a
                                                 href='#'
                                                 class='btn btn-secondary btn-lg active'
@@ -40,20 +43,27 @@
                                                 data-toggle='modal'
                                                 data-target='#exampleModal'
                                                 data-id='{{this._id}}'
-                                            ><i class='bx bx-x-circle' style="margin-left:10px; color: red;" ></i></a>
+                                            ><i
+                                                    class='bx bx-x-circle'
+                                                    style='margin-left:10px; color: red;'
+                                                ></i></a>
                                         </td>
                                     </tr>
                                 {{/each}}
                             </tbody>
                         </table>
-                        <a href='/answers/create/{{question_id}}' class='btn btn-primary' style="width: 150px;display: block;display:flex;align-items: center;">Add answer</a>
-                    </div>
+                        <a
+                            href='/answers/create/{{question_id}}'
+                            class='btn btn-primary'
+                            style='width: 150px;display: block;display:flex;align-items: center;'
+                        >Add answer</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+</div>
+{{! 
     <div class='modal' id='exampleModal' tabindex='-1' role='dialog'>
         <div class='modal-dialog' role='document'>
             <div class='modal-content'>
@@ -87,4 +97,4 @@
     document.getElementById('btn-delete-answer'); console.log(btn); btn.onclick= function(){
     deleteForm.action = '/answers/'+ answerId +'?_method=DELETE'; deleteForm.submit(); } });
 
-</script>
+</script> }}

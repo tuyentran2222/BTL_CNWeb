@@ -59,6 +59,7 @@
                         >E Learning</h2>
                     </a>
                     <div class='form-group'>
+                        <input type='hidden' name='redirect_url' value='{{redirect_url}}' />
                         <label for='signin-email'>Email</label>
                         <input
                             type='email'
@@ -108,7 +109,11 @@
                         <span>Remember account?</span>
                     </div>
                     {{#if errorMessage}}
-                        <div class='alert alert-danger'  style=" text-align:center;color:red; background-color: aqua; " role='alert'>
+                        <div
+                            class='alert alert-danger'
+                            style=' text-align:center;color:red; background-color: aqua; '
+                            role='alert'
+                        >
                             {{errorMessage}}
                         </div>
                     {{/if}}
