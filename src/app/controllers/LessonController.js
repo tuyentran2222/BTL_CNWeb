@@ -11,6 +11,7 @@ class LessonController {
             .then(async (lesson) => {
                 const question_List = await Question.find({ lesson_id: lesson._id }).lean();
                 const answer_List = await Answer.find({ lesson_id: lesson._id }).lean();
+                const relative_lessons = await Lesson.find({ course_id: lesson.course_id }).lean();
                 // add answer into question
                 for (let i = 0; i < question_List.length; i++) {
                     question_List[i].answer = [];
@@ -21,10 +22,23 @@ class LessonController {
                             question_List[i].answer.push(answer_List[j]);
                     }
                 }
+
+                //ignore previous lesson
+                for (let i = 0; i < relative_lessons.length; i++) {
+                    if (relative_lessons[i]._id.toString() !== lesson._id.toString()) {
+                        relative_lessons.shift();
+                    }
+                    if (relative_lessons[i]._id.toString() === lesson._id.toString()) {
+                        relative_lessons.shift();
+                        break;
+                    }
+                }
+
                 // res.json(question_List);
                 res.render('lessons/show', {
                     lesson: mongooseToObject(lesson),
                     questions: question_List,
+                    relative_lessons: relative_lessons,
                 });
             })
             .catch(next);

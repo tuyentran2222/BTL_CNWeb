@@ -75,120 +75,29 @@
                     <div class="continue-lesson">
                         <h3>Watch next <i class='bx bxs-right-arrow-square bx-fade-right' style="color: var(--danger-color);font-size: 20px;" ></i></h3>
                         <div class="lessons">
+                            {{!-- begin --}}
+                           {{#each relative_lessons}}
                             <div class="lesson-card">
                                 <div class="lesson-card-left">
-                                    <a href="lesson.html" class="lesson-card__index">
-                                        <b>Lesson 2</b>
+                                    <a href="/lessons/{{this.slug}}" class="lesson-card__index">
+                                        <b>{{this.name}}</b>
                                     </a>
                                     <div class="lesson-card__time">
-                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
-                                    </div>
-                                    <div class="lesson-card__content">
-                                        How to make radical climate action the new normal
+                                        <i class='bx bx-time-five' style='color:#7d7d7d'>{{this.createdAt}}</i> 
                                     </div>
                                 </div>
                                 <a href="lesson.html" class="lesson-card-right">
                                     <i class="far fa-play-circle"></i>
                                     <div class="lesson-length">13:45</div>
-                                    <img src="//assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
+                                    <img src="/{{this.imageUrl}}" alt="Anh dai dien">
                                 </a>
                                 
                             </div>
-                            <div class="lesson-card">
-                                <div class="lesson-card-left">
-                                    <a href="lesson.html" class="lesson-card__index">
-                                        <b>Lesson 2</b>
-                                    </a>
-                                    <div class="lesson-card__time">
-                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
-                                    </div>
-                                    <div class="lesson-card__content">
-                                        How to make radical climate action the new normal
-                                    </div>
-                                </div>
-                                <a href="lesson.html" class="lesson-card-right">
-                                    <i class="far fa-play-circle"></i>
-                                    <div class="lesson-length">13:45</div>
-                                    <img src="//assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
-                                </a>
-                                
-                            </div>
-                            <div class="lesson-card">
-                                <div class="lesson-card-left">
-                                    <a href="#" class="lesson-card__index">
-                                        <b>Lesson 2</b>
-                                    </a>
-                                    <div class="lesson-card__time">
-                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
-                                    </div>
-                                    <div class="lesson-card__content">
-                                        How to make radical climate action the new normal
-                                    </div>
-                                </div>
-                                <a href="#" class="lesson-card-right">
-                                    <i class="far fa-play-circle"></i>
-                                    <div class="lesson-length">13:45</div>
-                                    <img src="//assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
-                                </a>
-                                
-                            </div>
-                            <div class="lesson-card">
-                                <div class="lesson-card-left">
-                                    <a href="#" class="lesson-card__index">
-                                        <b>Lesson 2</b>
-                                    </a>
-                                    <div class="lesson-card__time">
-                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
-                                    </div>
-                                    <div class="lesson-card__content">
-                                        How to make radical climate action the new normal
-                                    </div>
-                                </div>
-                                <a href="#" class="lesson-card-right">
-                                    <i class="far fa-play-circle"></i>
-                                    <div class="lesson-length">13:45</div>
-                                    <img src="//assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
-                                </a>
-                                
-                            </div>
-                            <div class="lesson-card">
-                                <div class="lesson-card-left">
-                                    <a href="#" class="lesson-card__index">
-                                        <b>Lesson 2</b>
-                                    </a>
-                                    <div class="lesson-card__time">
-                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
-                                    </div>
-                                    <div class="lesson-card__content">
-                                        How to make radical climate action the new normal
-                                    </div>
-                                </div>
-                                <a href="#" class="lesson-card-right">
-                                    <i class="far fa-play-circle"></i>
-                                    <div class="lesson-length">13:45</div>
-                                    <img src="//assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
-                                </a>
-                                
-                            </div>
-                            <div class="lesson-card">
-                                <div class="lesson-card-left">
-                                    <a href="#" class="lesson-card__index">
-                                        <b>Lesson 2</b>
-                                    </a>
-                                    <div class="lesson-card__time">
-                                        <i class='bx bx-time-five' style='color:#7d7d7d'>10-12-2021</i> 
-                                    </div>
-                                    <div class="lesson-card__content">
-                                        How to make radical climate action the new normal
-                                    </div>
-                                </div>
-                                <a href="#" class="lesson-card-right">
-                                    <i class="far fa-play-circle"></i>
-                                    <div class="lesson-length">13:45</div>
-                                    <img src="//assets/images/AlGore_2021T-embed.jpg" alt="Anh dai dien">
-                                </a>
-                                
-                            </div>
+                            {{/each}}
+
+                              {{!-- end--}}
+                        
+                        
                         </div>
                     </div>
                     
