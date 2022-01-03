@@ -1,62 +1,67 @@
-
-<div class="container">
-    <div class="add-course">
-        <div class="left-sidebar col-2">
+<div class='container'>
+    <div class='add-course'>
+        <div class='left-sidebar col-2'>
             <ul>
-                <li><a href="/courses/create">Post Courses</a></li>
-                <li><a href="/me/stored/courses">All Courses</a></li>
-                <li class="sidebar-active"><a href="/me/stored/grammars">Grammar</a></li>
-            </ul>            
+                <li><a href='/courses/create'>Post Courses</a></li>
+                <li><a href='/me/stored/courses'>All Courses</a></li>
+                <li class='sidebar-active'><a href='/me/stored/grammars'>Grammar</a></li>
+            </ul>
         </div>
-        <div class="main-content col-10">
-                <div class=''>
+        <div class='main-content col-10'>
+            <div class=''>
+                <div class='mt-4'>
                     <div class='mt-4'>
-                        <div class='mt-4'>
-                                <h2>Grammar Lessons</h2>
-                                <table class='table styled-table'>
-                                    <thead>
-                                        <tr>
-                                            <th scope='col'>ID</th>
-                                            <th scope='col'>Title</th>
-                                            <th scope='col'>Description</th>
-                                            <th scope='col'>Created At</th>
-                                            <th scope='col'>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    {{#each items}}
-                                        <tr>
-                                            <th scope='row'>{{sum @index 1}}</th>
-                                            <td>{{this.title}}</td>
-                                            <td>{{this.description}}</td>
-                                            <td>{{this.createdAt}}</td>
-                                            <td>
-                                                <a
-                                                    href='/grammar/{{this._id}}/edit'
-                                                    class='btn btn-secondary btn-lg active'
-                                                    aria-pressed='true'
-                                                ><i class='bx bx-edit' style="margin-left:10px; color:#0C90D6;"></i></a>
-                                                <a
-                                                    href='#'
-                                                    class='btn btn-secondary btn-lg active'
-                                                    aria-pressed='true'
-                                                    data-toggle='modal'
-                                                    data-target='#exampleModal'
-                                                    data-id='{{this._id}}'
-                                                ><i class='bx bx-x-circle' style="margin-left:10px; color: red;" ></i></a>
-                                            </td>
-                                        </tr>
-                                    {{/each}}
-                                </tbody>
-                            </table>
-                            <a class="btn btn-primary" href="/grammar/create">Add Grammar Lesson</a>
-                        </div>
+                        <h2>Grammar Lessons</h2>
+                        <table class='table styled-table'>
+                            <thead>
+                                <tr>
+                                    <th scope='col'>ID</th>
+                                    <th scope='col'>Title</th>
+                                    <th scope='col'>Description</th>
+                                    <th scope='col'>Created At</th>
+                                    <th scope='col'>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each items}}
+                                    <tr>
+                                        <th scope='row'>{{sum @index 1}}</th>
+                                        <td>{{this.title}}</td>
+                                        <td>{{this.description}}</td>
+                                        <td>{{this.createdAt}}</td>
+                                        <td>
+                                            <a
+                                                href='/grammar/{{this._id}}/edit'
+                                                class='btn btn-secondary btn-lg active'
+                                                aria-pressed='true'
+                                            ><i
+                                                    class='bx bx-edit'
+                                                    style='margin-left:10px; color:#0C90D6;'
+                                                ></i></a>
+                                            <a
+                                                href='#'
+                                                class='btn btn-secondary btn-lg active'
+                                                aria-pressed='true'
+                                                data-toggle='modal'
+                                                data-target='#exampleModal'
+                                                data-id='{{this._id}}'
+                                            ><i
+                                                    class='bx bx-x-circle'
+                                                    style='margin-left:10px; color: red;'
+                                                ></i></a>
+                                        </td>
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                        <a class='btn btn-primary' href='/grammar/create'>Add Grammar Lesson</a>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>
-<div class='modal' id='exampleModal' tabindex='-1' role='dialog'>
+{{! <div class='modal' id='exampleModal' tabindex='-1' role='dialog'>
     <div class='modal-dialog' role='document'>
         <div class='modal-content'>
             <div class='modal-header'>
@@ -83,4 +88,4 @@
     document.getElementById('btn-delete-lesson'); console.log(btn); btn.onclick= function(){
     deleteForm.action = '/lessons/'+ lessonId +'?_method=DELETE'; deleteForm.submit(); } });
 
-</script>
+</script> }}

@@ -29,9 +29,13 @@ class LessonController {
                         relative_lessons.shift();
                     }
                     if (relative_lessons[i]._id.toString() === lesson._id.toString()) {
+                        console.log('in equal');
+
                         relative_lessons.shift();
+
                         break;
                     }
+                    console.log(relative_lessons);
                 }
 
                 // res.json(question_List);
@@ -49,6 +53,11 @@ class LessonController {
             .then((course) =>
                 res.render('lessons/create', {
                     course: mongooseToObject(course),
+                    oldInput: {
+                        name: '',
+                        transcription: '',
+                        contentId: '',
+                    },
                 }),
             )
             .catch(next);
@@ -56,8 +65,16 @@ class LessonController {
     // [POST] /lessons/store/:id
     store(req, res, next) {
         const image = req.file;
+        const message = 'Attack file is not an image';
         if (!image) {
-            res.status(422).send('Attack file is not an image');
+            return res.status(422).render('lessons/create', {
+                errorMessage: message,
+                oldInput: {
+                    name: req.body.name,
+                    transcription: req.body.transcription,
+                    contentId: req.body.contentId,
+                },
+            });
         }
         const formdata = req.body;
         formdata.course_id = req.params.id;
@@ -81,12 +98,12 @@ class LessonController {
 
     async update(req, res, next) {
         const lesson = await Lesson.findOne({ _id: req.params.id }).lean();
-        const image = req.file;
-        if (!image) {
-            res.status(422).send('Attack file is not an image');
-        }
         const formdata = req.body;
-        formdata.imageUrl = image.path;
+        const image = req.file;
+        if (image) {
+            formdata.imageUrl = image.path;
+        }
+
         Lesson.updateOne({ _id: req.params.id }, formdata)
             .then(() => res.redirect(`/me/stored/lessons/${lesson.course_id}`))
             .catch(next);

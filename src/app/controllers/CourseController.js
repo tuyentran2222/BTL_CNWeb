@@ -15,13 +15,25 @@ class CourseController {
     }
     //[GET] /courses/create
     create(req, res, next) {
-        res.render('courses/create');
+        res.render('courses/create', {
+            oldInput: {
+                name: '',
+                description: '',
+            },
+        });
     }
     //[POST] /courses/create
     store(req, res, next) {
         const image = req.file;
+        const message = 'Attack file is not an image';
         if (!image) {
-            res.status(422).send('Attack file is not an image');
+            return res.status(422).render('courses/create', {
+                errorMessage: message,
+                oldInput: {
+                    name: req.body.name,
+                    description: req.body.description,
+                },
+            });
         }
         const formdata = req.body;
         formdata.imageUrl = image.path;
@@ -43,12 +55,12 @@ class CourseController {
     }
 
     update(req, res, next) {
-        const image = req.file;
-        if (!image) {
-            res.status(422).send('Attack file is not an image');
-        }
         const formdata = req.body;
-        formdata.imageUrl = image.path;
+        const image = req.file;
+        if (image) {
+            formdata.imageUrl = image.path;
+        }
+
         Course.updateOne({ _id: req.params.id }, formdata)
             .then(() => res.redirect('/me/stored/courses'))
             .catch(next);

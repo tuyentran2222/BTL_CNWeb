@@ -36,17 +36,11 @@
                                                     class='bx bx-edit'
                                                     style='margin-left:10px; color:#0C90D6;'
                                                 ></i></a>
-                                            <a
-                                                href='#'
-                                                class='btn btn-secondary btn-lg active'
-                                                aria-pressed='true'
-                                                data-toggle='modal'
-                                                data-target='#exampleModal'
-                                                data-id='{{this._id}}'
-                                            ><i
-                                                    class='bx bx-x-circle'
-                                                    style='margin-left:10px; color: red;'
-                                                ></i></a>
+                                               
+                                                <form method='post' name='delete-form' action='/answers/{{this._id}}?_method=DELETE'>
+                                                 <button type='submit' class='btn btn-secondary btn-lg active' ><i class='bx bx-x-circle' style="margin-left:10px; color: red;"  ></i></button>
+                                                 </form>
+                                                </td>
                                         </td>
                                     </tr>
                                 {{/each}}

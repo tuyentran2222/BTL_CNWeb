@@ -1,15 +1,9 @@
 
+   
+ <form method='post' name='delete-form'></form>
+
+<body>
     
-{{!-- <form method='post' name='delete-form'></form>
-<script>
-    document.addEventListener('DOMContentLoaded',function(){ var lessonId; var deleteForm =
-    document.forms['delete-form']; $('#exampleModal').on('show.bs.modal', function (event) { var
-    button = $(event.relatedTarget) ; courseId = button.data('id') ;}) ; var btn=
-    document.getElementById('btn-delete-lesson'); console.log(btn); btn.onclick= function(){
-    deleteForm.action = '/courses/'+ courseId +'?_method=DELETE'; deleteForm.submit(); } });
-
-</script> --}}
-
 <div class="container">
     <div class="add-course">
         <div class="left-sidebar col-2">
@@ -57,15 +51,9 @@
                                                         aria-pressed='true'
                                                     ><i class='bx bx-edit' style="margin-left:10px; color:#0C90D6;"></i></a>
                                                 
-
-                                                    <a
-                                                        href='#'
-                                                        class='btn btn-secondary btn-lg active'
-                                                        aria-pressed='true'
-                                                        data-toggle='modal'
-                                                        data-target='#exampleModal'
-                                                        data-id='{{this._id}}'
-                                                    ><i class='bx bx-x-circle' style="margin-left:10px; color: red;" ></i></a>
+                                                <form method='post' name='delete-form' action='/questions/{{this._id}}?_method=DELETE'>
+                                                 <button type='submit' class='btn btn-secondary btn-lg active' style="border: none;"><i class='bx bx-x-circle' style="margin-left:10px; color: red;"  ></i></button>
+                                                 </form>
                                                 </td>
                                             </tr>
                                         {{/each}}
@@ -73,35 +61,15 @@
                                 </table>
                             </div>
 
-                            <div class='modal' id='exampleModal' tabindex='-1' role='dialog'>
-                                <div class='modal-dialog' role='document'>
-                                    <div class='modal-content'>
-                                        <div class='modal-header'>
-                                            <h5 class='modal-title'>Xóa khóa học?</h5>
-                                            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                                                <span aria-hidden='true'>&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class='modal-body'>
-                                            <p>Bạn có muốn xóa khóa học này?</p>
-                                        </div>
-                                        <div class='modal-footer'>
-                                            <button id='btn-delete-lesson' type='button' class='btn btn-danger'>Xóa bỏ</button>
-                                            <button
-                                                type='button'
-                                                class='btn btn-secondary'
-                                                data-dismiss='modal'
-                                            >Hủy</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
         </div>
     </div>
+ 
 </div>
+   
+  </body>
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -145,7 +113,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 </style>
 </head>
-<body>
+{{!-- <body>
 
 <h2>Modal Example</h2>
 
@@ -191,4 +159,6 @@ window.onclick = function(event) {
 }
 </script>
 
-</body>
+</body> --}}
+
+
