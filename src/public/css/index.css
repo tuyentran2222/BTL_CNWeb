@@ -66,6 +66,7 @@
     -webkit-box-shadow: var(--box-shadow);
     -moz-box-shadow: var(--box-shadow);
     border: var(--border-none);
+    overflow: hidden;
 }
 
 .course-item:hover {
@@ -75,11 +76,16 @@
 }
 
 .course-item > img {
-    width: 288px;
+    width: 290px;
     height: 190px;
     object-fit: cover;
 }
 
+.course-item > img:hover {
+    object-fit: cover;
+    transform: scale(1.05);
+    transition: 0.3s linear;
+}
 .course-item__name {
     font-size: 1.25rem;
     color: #0062e4;
