@@ -1,5 +1,5 @@
 let searchbar = document.getElementById('search-bar');
-<<<<<<< HEAD
+
 searchbarContent =
     '<div class="container">' +
     ' <form class="search-bar" action="/search">' +
@@ -9,7 +9,7 @@ searchbarContent =
     '</div>';
 
 searchbar.innerHTML = searchbarContent;
-=======
+
 searchbarContent = 
 '<div class="container">' +
     '<div class="search-bar">' +
@@ -20,4 +20,4 @@ searchbarContent =
 
 searchbar.innerHTML = searchbarContent;
 
->>>>>>> 4199fdb04bb85cdaf8d6dfc3295c3d44003e7902
+

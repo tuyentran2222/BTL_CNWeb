@@ -8,6 +8,7 @@ const grammarRouter = require('./grammar');
 const meRouter = require('./me');
 const userRouter = require('./users');
 const sessionRouter = require('./session');
+const searchRouter = require('./search');
 function route(app) {
     app.use('/login', sessionRouter);
     app.use('/users', userRouter);
@@ -19,6 +20,7 @@ function route(app) {
     app.use('/me', meRouter);
     app.use('/news', newsRouter);
     app.use('/', siteRouter);
+    app.use('/searchWord', searchRouter);
 }
 
 module.exports = route;
